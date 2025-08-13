@@ -3,7 +3,7 @@
   box-sizing: border-box;
   margin: 0;
   padding: 0;
-  font-family: 'Arial', sans-serif;
+  font-family: 'Inter', sans-serif;
 }
 
 body {
@@ -75,4 +75,22 @@ header h1 {
   margin: 5px auto;
   width: 200px;
   background: #fff;
+}
+.success-line {
+  text-align: center;
+  font-weight: bold;
+  font-size: 1.3rem; /* slightly bigger */
+  margin-bottom: 10px; /* space before counters */
+}
+.counters {
+  margin: 0 auto 20px auto; /* centered, with space below */
+  font-size: 1.2rem;
+  display: flex;
+  justify-content: center;
+  gap: 20px;
+  text-align: center;
+}
+
+.counters span {
+  margin: 0 10px;
 }
