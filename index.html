@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+  <meta charset="UTF-8">
+  <title>JLPT N5 Kanji Flashcards</title>
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+  <h1>Kanji Flashcards — JLPT N5</h1>
+
+  <div class="filters">
+    <select id="filter">
+      <option value="all">All Kanji</option>
+      <option value="known">Known</option>
+      <option value="unknown">Unknown</option>
+      <option value="review">Marked for Review</option>
+    </select>
+  </div>
+
+  <div id="flashcard" class="card">
+    <div class="front" id="card-front"></div>
+    <div class="back" id="card-back"></div>
+  </div>
+
+  <div class="buttons">
+    <button id="know">I Know</button>
+    <button id="dontknow">I Don't Know</button>
+    <button id="review">Mark for Review</button>
+  </div>
+
+  <div class="nav">
+    <button id="prev">← Previous</button>
+    <button id="next">Next →</button>
+  </div>
+</body>
+</html>

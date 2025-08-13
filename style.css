@@ -1,0 +1,72 @@
+body {
+  font-family: 'Poppins', sans-serif;
+  background: #f2f3f5;
+  color: #333;
+  margin: 0;
+  padding: 0;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+h1 {
+  font-weight: 300;
+  margin: 40px 0 20px;
+}
+
+.card {
+  background: #ffffff;
+  border-radius: 16px;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+  width: 240px;
+  height: 320px;
+  margin: 20px;
+  perspective: 1000px;
+  position: relative;
+}
+
+.front, .back {
+  border-radius: 16px;
+  background: white;
+  padding: 20px;
+  box-sizing: border-box;
+  font-size: 2.2em;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.buttons button,
+.nav button {
+  background: #b387d7;  /* Purple highlight */
+  color: white;
+  border: none;
+  padding: 12px 24px;
+  border-radius: 12px;
+  font-size: 1em;
+  margin: 8px;
+  cursor: pointer;
+  transition: background 0.3s;
+}
+
+.buttons button:hover,
+.nav button:hover {
+  background: #9d6fc9;  /* Slightly darker purple on hover */
+}
+
+.filters,
+.buttons,
+.nav {
+  margin-top: 20px;
+}
+
+.filters select {
+  padding: 8px 12px;
+  border-radius: 8px;
+  border: 1px solid #ccc;
+  font-size: 1em;
+}
+
+.filters select:focus {
+  outline: 2px solid #b387d7;  /* Purple focus ring */
+}
