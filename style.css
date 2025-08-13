@@ -1,72 +1,78 @@
-body {
-  font-family: 'Poppins', sans-serif;
-  background: #f2f3f5;
-  color: #333;
+/* Reset */
+* {
+  box-sizing: border-box;
   margin: 0;
   padding: 0;
-  display: flex;
-  flex-direction: column;
-  align-items: center;
+  font-family: 'Arial', sans-serif;
 }
 
-h1 {
-  font-weight: 300;
-  margin: 40px 0 20px;
-}
-
-.card {
-  background: #ffffff;
-  border-radius: 16px;
-  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
-  width: 240px;
-  height: 320px;
-  margin: 20px;
-  perspective: 1000px;
-  position: relative;
-}
-
-.front, .back {
-  border-radius: 16px;
-  background: white;
+body {
+  background: #f8f8f8;
+  color: #333;
+  text-align: center;
   padding: 20px;
-  box-sizing: border-box;
-  font-size: 2.2em;
-  display: flex;
-  align-items: center;
-  justify-content: center;
 }
 
-.buttons button,
-.nav button {
-  background: #b387d7;  /* Purple highlight */
+header h1 {
+  color: #b387d7;
+  margin-bottom: 40px;
+}
+
+.flashcard {
+  width: 300px;
+  height: 200px;
+  perspective: 1000px;
+  margin: 0 auto 20px;
+  cursor: pointer;
+}
+
+.card-front, .card-back {
+  width: 100%;
+  height: 100%;
+  background: white;
+  border: 2px solid #b387d7;
+  border-radius: 15px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  font-size: 3rem;
+  backface-visibility: hidden;
+  transition: transform 0.6s;
+  padding: 10px;
+}
+
+.card-back {
+  transform: rotateY(180deg);
+}
+
+.flashcard.flipped .card-front { transform: rotateY(180deg); }
+.flashcard.flipped .card-back { transform: rotateY(0deg); }
+
+.controls button {
+  background: #b387d7;
   color: white;
   border: none;
-  padding: 12px 24px;
-  border-radius: 12px;
-  font-size: 1em;
-  margin: 8px;
+  padding: 10px 20px;
+  margin: 5px;
+  border-radius: 8px;
+  font-size: 1rem;
   cursor: pointer;
   transition: background 0.3s;
 }
 
-.buttons button:hover,
-.nav button:hover {
-  background: #9d6fc9;  /* Slightly darker purple on hover */
+.controls button:hover {
+  background: #9b5fcf;
 }
 
-.filters,
-.buttons,
-.nav {
-  margin-top: 20px;
+#wrong-section {
+  margin-top: 40px;
 }
 
-.filters select {
-  padding: 8px 12px;
+#wrong-cards div {
+  border: 1px solid #b387d7;
   border-radius: 8px;
-  border: 1px solid #ccc;
-  font-size: 1em;
-}
-
-.filters select:focus {
-  outline: 2px solid #b387d7;  /* Purple focus ring */
+  padding: 5px 10px;
+  margin: 5px auto;
+  width: 200px;
+  background: #fff;
 }

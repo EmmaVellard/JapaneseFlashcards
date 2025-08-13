@@ -1,36 +1,36 @@
 <!DOCTYPE html>
-<html lang="fr">
+<html lang="en">
 <head>
   <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>JLPT N5 Kanji Flashcards</title>
   <link rel="stylesheet" href="style.css">
 </head>
 <body>
-  <h1>Kanji Flashcards — JLPT N5</h1>
+  <header>
+    <h1>JLPT N5 Kanji Flashcards</h1>
+  </header>
 
-  <div class="filters">
-    <select id="filter">
-      <option value="all">All Kanji</option>
-      <option value="known">Known</option>
-      <option value="unknown">Unknown</option>
-      <option value="review">Marked for Review</option>
-    </select>
-  </div>
+  <main>
+    <div class="flashcard" id="flashcard">
+      <div class="card-front"></div>
+      <div class="card-back"></div>
+    </div>
 
-  <div id="flashcard" class="card">
-    <div class="front" id="card-front"></div>
-    <div class="back" id="card-back"></div>
-  </div>
+    <div class="controls">
+      <button id="right">Got it</button>
+      <button id="wrong">Wrong</button>
+      <button id="review">Review Wrong</button>
+    </div>
 
-  <div class="buttons">
-    <button id="know">I Know</button>
-    <button id="dontknow">I Don't Know</button>
-    <button id="review">Mark for Review</button>
-  </div>
+    <section id="wrong-section">
+      <h2>Review Wrong Kanji</h2>
+      <div id="wrong-cards"></div>
+    </section>
+  </main>
 
-  <div class="nav">
-    <button id="prev">← Previous</button>
-    <button id="next">Next →</button>
-  </div>
+  <!-- Import the kanji list -->
+  <script src="kanjiN5.js"></script>
+  <script src="script.js"></script>
 </body>
 </html>
