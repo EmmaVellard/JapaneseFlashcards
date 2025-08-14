@@ -88,38 +88,49 @@ header h1 {
   margin-bottom: 10px;
 }
 
-/* Buttons */
-.controls {
-  display: flex;
-  justify-content: center;
-  gap: 10px;
-  margin-bottom: 20px;
-}
-
-button {
+/* Main flashcard buttons (purple) */
+.controls button {
   padding: 10px 20px;
   font-size: 1rem;
   cursor: pointer;
   border: 2px solid #b387d7;
   border-radius: 5px;
-  background-color: #f0f0f0;
+  background-color: #b387d7;
+  color: #fff;
   transition: background-color 0.2s;
 }
 
-button:hover {
-  background-color: #b387d7;
-  color: #fff;
+.controls button:hover {
+  background-color: #9b5fcf;
 }
 
+/* Hidden utility class */
 .hidden {
   display: none !important;
+}
+
+/* Review Wrong button (white) */
+#review {
+  padding: 10px 20px;
+  font-size: 1rem;
+  cursor: pointer;
+  border: 2px solid #b387d7;
+  border-radius: 5px;
+  background-color: #fff;
+  color: #333;
+  transition: background-color 0.2s, color 0.2s;
+}
+
+#review:hover {
+  background-color: #b387d7;
+  color: #fff;
 }
 
 /* Wrong Section */
 #wrong-section {
   width: 90%;
   max-width: 800px;
-  margin: 40px auto; /* more space above and below */
+  margin: 40px auto; /* more space around section */
 }
 
 #wrong-section h2 {
@@ -130,12 +141,13 @@ button:hover {
 #review {
   display: block;
   margin: 0 auto 25px auto; /* space below the button before the cards */
+  
 }
 
 #wrong-cards {
   display: grid;
-  grid-template-columns: 1fr; /* default single column */
-  gap: 20px; /* more space between cards */
+  grid-template-columns: 1fr; /* single column on small screens */
+  gap: 20px; /* space between cards */
 }
 
 /* Two-column layout for larger screens */
@@ -156,7 +168,7 @@ button:hover {
 }
 
 .wrong-kanji {
-  font-size: 1.5em;
+  font-size: 1.5em; /* scales with base font-size from .flashcard */
   flex: 1;
   text-align: center;
 }
@@ -164,5 +176,5 @@ button:hover {
 .wrong-details {
   flex: 2;
   padding-left: 20px;
-  font-size: 0.8em;
+  font-size: 0.8em; /* slightly smaller than base size */
 }
