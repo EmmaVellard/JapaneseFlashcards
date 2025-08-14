@@ -1,4 +1,4 @@
-# 🎴 JLPT N5 Kanji Flashcards 🎴
+<h1 align="center"> 🎴 JLPT N5 Kanji Flashcards 🎴</h1>
 
 A simple, interactive web-based flashcard tool for learning **JLPT N5 kanji**. Designed to help beginners memorize kanji characters, readings, and meanings efficiently.
 
@@ -6,7 +6,7 @@ A simple, interactive web-based flashcard tool for learning **JLPT N5 kanji**. D
 
 You can run the webpage locally by opening `index.html` in your browser.
 
-<p float="left">
+<p align="center">
   <img src="Images/kanjiquiz.png" alt="Kanji Quiz" width="300" />
   <img src="Images/kanjianswer.png" alt="Kanji Answer" width="300" />
 </p>
@@ -34,4 +34,4 @@ You can run the webpage locally by opening `index.html` in your browser.
 
 1. Clone the repository:
    ```bash
-   git clone https://github.com/your-username/jlpt-n5-kanji-flashcards.git
+   git clone https://github.com/EmmaVellard/jlpt-n5-kanji-flashcards.git
