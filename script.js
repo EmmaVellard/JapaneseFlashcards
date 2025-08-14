@@ -13,12 +13,13 @@ const wrongCountDisplay = document.getElementById('wrong-count');
 const remainingCountDisplay = document.getElementById('remaining-count');
 const successRateDisplay = document.getElementById('success-rate');
 
+// State
 let currentIndex = 0;
 let wrongList = [];
 let correctCount = 0;
 let wrongCount = 0;
 
-// Shuffle function (Fisher–Yates)
+// Shuffle Array (Fisher–Yates)
 function shuffle(array) {
   for (let i = array.length - 1; i > 0; i--) {
     const j = Math.floor(Math.random() * (i + 1));
@@ -26,21 +27,25 @@ function shuffle(array) {
   }
 }
 
-// Show current kanji
+// UI Helpers
+function showElement(el) {
+  el.classList.remove('hidden');
+}
+
+function hideElement(el) {
+  el.classList.add('hidden');
+}
+
 function showKanji(index) {
   const kanji = kanjiList[index];
   kanjiDisplay.textContent = kanji.kanji;
-
-  // Clear answer
-  answerDisplay.innerHTML = '';
+  answerDisplay.textContent = '';
   overlay.classList.remove('hidden');
-
-  showAnswerBtn.style.display = 'inline-block';
-  rightBtn.style.display = 'none';
-  wrongBtn.style.display = 'none';
+  showElement(showAnswerBtn);
+  hideElement(rightBtn);
+  hideElement(wrongBtn);
 }
 
-// Update counters and success rate
 function updateCounters() {
   correctCountDisplay.textContent = `Correct: ${correctCount}`;
   wrongCountDisplay.textContent = `Wrong: ${wrongCount}`;
@@ -51,41 +56,37 @@ function updateCounters() {
   successRateDisplay.textContent = `Success: ${success}%`;
 }
 
-// Show answer
+// Event Handlers
 showAnswerBtn.addEventListener('click', () => {
-  const kanji = kanjiList[currentIndex];
+  const { meaning, onyomi, kunyomi } = kanjiList[currentIndex];
   answerDisplay.innerHTML = `
-    <p>${kanji.meaning}</p>
-    <p>${kanji.onyomi}</p>
-    <p>${kanji.kunyomi}</p>
+    <p>${meaning}</p>
+    <p>${onyomi}</p>
+    <p>${kunyomi}</p>
   `;
   overlay.classList.add('hidden');
-  showAnswerBtn.style.display = 'none';
-  rightBtn.style.display = 'inline-block';
-  wrongBtn.style.display = 'inline-block';
+  hideElement(showAnswerBtn);
+  showElement(rightBtn);
+  showElement(wrongBtn);
 });
 
-// Handle correct
 rightBtn.addEventListener('click', () => {
   correctCount++;
   nextKanji();
 });
 
-// Handle wrong
 wrongBtn.addEventListener('click', () => {
   wrongList.push(kanjiList[currentIndex]);
   wrongCount++;
   nextKanji();
 });
 
-// Move to next kanji
 function nextKanji() {
   currentIndex = (currentIndex + 1) % kanjiList.length;
   showKanji(currentIndex);
   updateCounters();
 }
 
-// Review wrong kanji
 reviewBtn.addEventListener('click', showWrongList);
 
 function showWrongList() {
@@ -94,66 +95,45 @@ function showWrongList() {
     wrongContainer.textContent = "No wrong kanji yet!";
     return;
   }
-
-  wrongList.forEach((k) => {
+  wrongList.forEach(k => {
     const card = document.createElement('div');
-    card.style.display = 'flex';
-    card.style.alignItems = 'center';
-    card.style.padding = '30px 20px'; // taller card with horizontal padding
-    card.style.border = '2px solid #b387d7';
-    card.style.borderRadius = '12px';  
-    card.style.marginBottom = '15px'; // space between cards
-    card.style.width = '100%'; // make it full width
-    card.style.boxSizing = 'border-box';
-    card.style.backgroundColor = '#fff';
+    card.className = 'wrong-card';
 
     const kanjiDiv = document.createElement('div');
+    kanjiDiv.className = 'wrong-kanji';
     kanjiDiv.textContent = k.kanji;
-    kanjiDiv.style.fontSize = '4rem'; // bigger kanji
-    kanjiDiv.style.flex = '1';
-    kanjiDiv.style.textAlign = 'center';
-    kanjiDiv.style.border = 'none'; // remove any side borders
 
     const detailsDiv = document.createElement('div');
+    detailsDiv.className = 'wrong-details';
     detailsDiv.innerHTML = `
       <p>${k.meaning}</p>
       <p>${k.onyomi}</p>
       <p>${k.kunyomi}</p>
     `;
-    detailsDiv.style.flex = '2';
-    detailsDiv.style.paddingLeft = '40px';
-    detailsDiv.style.fontSize = '1.8rem'; // bigger text
-    detailsDiv.style.border = 'none'; // remove any side borders
 
-    card.appendChild(kanjiDiv);
-    card.appendChild(detailsDiv);
+    card.append(kanjiDiv, detailsDiv);
     wrongContainer.appendChild(card);
   });
 }
 
-// Keyboard shortcuts: S (show), C (correct), W (wrong), R (review)
-document.addEventListener('keydown', (e) => {
-  // Avoid triggering shortcuts while typing in inputs/textareas if you add any later
-  const tag = (e.target && e.target.tagName) ? e.target.tagName.toLowerCase() : '';
+// Keyboard Shortcuts
+document.addEventListener('keydown', e => {
+  const tag = e.target?.tagName?.toLowerCase();
   if (tag === 'input' || tag === 'textarea' || e.ctrlKey || e.metaKey || e.altKey) return;
 
-  const key = e.key.toLowerCase();
-  if (key === 's' && showAnswerBtn.style.display !== 'none') {
-    showAnswerBtn.click();
-  } else if (key === 'c' && rightBtn.style.display !== 'none') {
-    rightBtn.click();
-  } else if (key === 'w' && wrongBtn.style.display !== 'none') {
-    wrongBtn.click();
-  } else if (key === 'r') {
-    reviewBtn.click();
+  switch (e.key.toLowerCase()) {
+    case 's': if (!showAnswerBtn.classList.contains('hidden')) showAnswerBtn.click(); break;
+    case 'c': if (!rightBtn.classList.contains('hidden')) rightBtn.click(); break;
+    case 'w': if (!wrongBtn.classList.contains('hidden')) wrongBtn.click(); break;
+    case 'r': reviewBtn.click(); break;
   }
 });
 
 // Init
-if (typeof kanjiList !== 'undefined' && Array.isArray(kanjiList) && kanjiList.length > 0) {
+if (Array.isArray(kanjiList) && kanjiList.length > 0) {
   shuffle(kanjiList);
   showKanji(currentIndex);
-  updateCounters(); // shows full "Remaining" on load
+  updateCounters();
 } else {
   kanjiDisplay.textContent = 'No kanji data loaded!';
 }

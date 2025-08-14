@@ -1,102 +1,11 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>JLPT N5 Kanji Flashcards</title>
   <link rel="icon" href="data:image/svg+xml,<svg xmlns=%22http://www.w3.org/2000/svg%22 viewBox=%220 0 100 100%22><text y=%22.9em%22 font-size=%2290%22>🎴</text></svg>">
-  <link rel="stylesheet" href="style.css">
-  <style>
-    .flashcard {
-      display: flex;
-      border: 2px solid #b387d7;
-      border-radius: 10px;
-      width: 500px;
-      height: 200px;
-      margin: 20px auto;
-      overflow: hidden;
-      position: relative;
-      font-family: 'Inter', sans-serif; /* Emmavellard style font */
-    }
-    .card-left, .card-right {
-      flex: 1;
-      display: flex;
-      justify-content: center;
-      align-items: center;
-      padding: 20px;
-      box-sizing: border-box;
-    }
-    .card-left {
-      background-color: #f0f0f0;
-      font-size: 4rem; /* increased size */
-    }
-    .card-right {
-      background-color: #fff;
-      border-left: 2px solid #333;
-      flex-direction: column;
-      font-size: 1.8rem; /* increased size */
-      position: relative;
-    }
-    .overlay {
-      position: absolute;
-      top: 0;
-      left: 50%;
-      width: 50%;
-      height: 100%;
-      background-color: #b387d7;
-      z-index: 10;
-      transition: opacity 0.3s;
-    }
-    .overlay.hidden {
-      opacity: 0;
-      pointer-events: none;
-    }
-    .counters {
-      margin: 20px auto;
-      font-size: 1.2rem;
-      display: flex;
-      justify-content: center;
-      gap: 20px;
-      text-align: center;
-    }
-    .success {
-      font-weight: bold;
-    }
-    .controls {
-      display: flex;
-      justify-content: center;
-      gap: 10px;
-      margin-bottom: 20px;
-    }
-    button {
-      padding: 10px 20px;
-      font-size: 1rem;
-      cursor: pointer;
-      border: 2px solid #b387d7;
-      border-radius: 5px;
-      background-color: #fff;
-      transition: background-color 0.2s;
-    }
-    button:hover {
-      background-color: #b387d7;
-      color: #fff;
-    }
-    #wrong-section {
-      width: 500px;
-      margin: 20px auto;
-    }
-    #wrong-section h2 {
-      text-align: center;
-    }
-    #wrong-cards {
-      margin-top: 10px;
-      font-size: 1.2rem;
-    }
-    #review {
-      display: block;
-      margin: 10px auto;
-    }
-  </style>
+  <link rel="stylesheet" href="style.css" />
 </head>
 <body>
   <header>
@@ -110,7 +19,6 @@
       <div class="overlay" id="overlay"></div>
     </div>
 
-    <!-- Counters above buttons -->
     <div class="counters">
       <span id="correct-count">Correct: 0</span>
       <span id="wrong-count">Wrong: 0</span>
@@ -120,11 +28,10 @@
       <span id="success-rate" class="success">Success: 0%</span>
     </div>
 
-
     <div class="controls">
       <button id="show-answer">Show Answer (S)</button>
-      <button id="right" style="display:none;">Correct (C)</button>
-      <button id="wrong" style="display:none;">Wrong (W)</button>
+      <button id="right" class="hidden">Correct (C)</button>
+      <button id="wrong" class="hidden">Wrong (W)</button>
     </div>
 
     <section id="wrong-section">

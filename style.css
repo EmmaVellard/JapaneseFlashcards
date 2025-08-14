@@ -1,4 +1,4 @@
-/* Reset */
+/* Reset & Base */
 * {
   box-sizing: border-box;
   margin: 0;
@@ -18,79 +18,151 @@ header h1 {
   margin-bottom: 40px;
 }
 
+/* Flashcard Layout with Proportional Scaling */
 .flashcard {
-  width: 300px;
-  height: 200px;
-  perspective: 1000px;
-  margin: 0 auto 20px;
-  cursor: pointer;
+  width: 90%;
+  max-width: 600px;
+  aspect-ratio: 5 / 2;
+  margin: 20px auto;
+  display: flex;
+  border: 2px solid #b387d7;
+  border-radius: 10px;
+  overflow: hidden;
+  position: relative;
+  font-size: clamp(1rem, 4vw, 2rem); /* base size for the whole card */
 }
 
-.card-front, .card-back {
-  width: 100%;
-  height: 100%;
-  background: white;
-  border: 2px solid #b387d7;
-  border-radius: 15px;
+.card-left,
+.card-right {
+  flex: 1;
   display: flex;
   justify-content: center;
   align-items: center;
-  font-size: 3rem;
-  backface-visibility: hidden;
-  transition: transform 0.6s;
-  padding: 10px;
+  padding: 20px;
 }
 
-.card-back {
-  transform: rotateY(180deg);
+/* Kanji side scales 2× base size */
+.card-left {
+  background-color: #f0f0f0;
+  font-size: 2em;
 }
 
-.flashcard.flipped .card-front { transform: rotateY(180deg); }
-.flashcard.flipped .card-back { transform: rotateY(0deg); }
-
-.controls button {
-  background: #b387d7;
-  color: white;
-  border: none;
-  padding: 10px 20px;
-  margin: 5px;
-  border-radius: 8px;
-  font-size: 1rem;
-  cursor: pointer;
-  transition: background 0.3s;
+/* Meaning/reading side scales 1× base size */
+.card-right {
+  background-color: #fff;
+  border-left: 2px solid #333;
+  flex-direction: column;
+  font-size: 1em;
+  position: relative;
 }
 
-.controls button:hover {
-  background: #9b5fcf;
+.overlay {
+  position: absolute;
+  top: 0;
+  left: 50%;
+  width: 50%;
+  height: 100%;
+  background-color: #b387d7;
+  z-index: 10;
+  transition: opacity 0.3s;
 }
 
-#wrong-section {
-  margin-top: 40px;
+.overlay.hidden {
+  opacity: 0;
+  pointer-events: none;
 }
 
-#wrong-cards div {
-  border: 1px solid #b387d7;
-  border-radius: 8px;
-  padding: 5px 10px;
-  margin: 5px auto;
-  width: 200px;
-  background: #fff;
-}
-.success-line {
-  text-align: center;
-  font-weight: bold;
-  font-size: 1.3rem; /* slightly bigger */
-  margin-bottom: 10px; /* space before counters */
-}
+/* Counters & Success */
 .counters {
-  margin: 0 auto 20px auto; /* centered, with space below */
+  margin: 20px auto;
   font-size: 1.2rem;
   display: flex;
   justify-content: center;
   gap: 20px;
+}
+
+.success-line {
+  text-align: center;
+  font-weight: bold;
+  font-size: 1.3rem;
+  margin-bottom: 10px;
+}
+
+/* Buttons */
+.controls {
+  display: flex;
+  justify-content: center;
+  gap: 10px;
+  margin-bottom: 20px;
+}
+
+button {
+  padding: 10px 20px;
+  font-size: 1rem;
+  cursor: pointer;
+  border: 2px solid #b387d7;
+  border-radius: 5px;
+  background-color: #f0f0f0;
+  transition: background-color 0.2s;
+}
+
+button:hover {
+  background-color: #b387d7;
+  color: #fff;
+}
+
+.hidden {
+  display: none !important;
+}
+
+/* Wrong Section */
+#wrong-section {
+  width: 90%;
+  max-width: 800px;
+  margin: 40px auto; /* more space above and below */
+}
+
+#wrong-section h2 {
+  text-align: center;
+  margin-bottom: 15px; /* space between title and button */
+}
+
+#review {
+  display: block;
+  margin: 0 auto 25px auto; /* space below the button before the cards */
+}
+
+#wrong-cards {
+  display: grid;
+  grid-template-columns: 1fr; /* default single column */
+  gap: 20px; /* more space between cards */
+}
+
+/* Two-column layout for larger screens */
+@media (min-width: 700px) {
+  #wrong-cards {
+    grid-template-columns: 1fr 1fr;
+  }
+}
+
+.wrong-card {
+  display: flex;
+  align-items: center;
+  padding: 15px 10px;
+  border: 2px solid #b387d7;
+  border-radius: 12px;
+  background-color: #fff;
+  box-sizing: border-box;
+}
+
+.wrong-kanji {
+  font-size: 1.5em;
+  flex: 1;
   text-align: center;
 }
 
-.counters span {
-  margin: 0 10px;
+.wrong-details {
+  flex: 2;
+  padding-left: 20px;
+  font-size: 0.8em;
 }
