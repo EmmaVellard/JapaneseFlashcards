@@ -13,8 +13,8 @@ You can run the webpage locally by opening `index.html` in your browser, or chec
 </p>
 
 <p align="center">
-  <img src="Images/kanjiquiz.png" alt="Kanji Quiz" width="300" />
-  <img src="Images/kanjianswer.png" alt="Kanji Answer" width="300" />
+  <img src="Images/kanjiquiz.png" alt="Kanji Quiz" width="400" />
+  <img src="Images/kanjianswer.png" alt="Kanji Answer" width="400" />
 </p>
 
 ## Features
