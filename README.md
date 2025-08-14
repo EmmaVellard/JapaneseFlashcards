@@ -32,6 +32,15 @@ You can run the webpage locally by opening `index.html` in your browser.
 
 ## Usage
 
-1. Clone the repository:
-   ```bash
-   git clone https://github.com/EmmaVellard/jlpt-n5-kanji-flashcards.git
+You can run the webpage locally by opening `index.html` in your browser, or check out the live version here:
+
+<p align="center">
+  <a href="https://emmavellard.github.io/JapaneseFlashcards/" target="_blank">
+    🌐 View Live Website
+  </a>
+</p>
+
+<p align="center">
+  <img src="Images/kanjiquiz.png" alt="Kanji Quiz" width="300" />
+  <img src="Images/kanjianswer.png" alt="Kanji Answer" width="300" />
+</p>
