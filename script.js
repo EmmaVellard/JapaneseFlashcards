@@ -131,11 +131,29 @@ function showWrongList() {
   });
 }
 
-// Initialize
-if (typeof kanjiList !== 'undefined' && kanjiList.length > 0) {
+// Keyboard shortcuts: S (show), C (correct), W (wrong), R (review)
+document.addEventListener('keydown', (e) => {
+  // Avoid triggering shortcuts while typing in inputs/textareas if you add any later
+  const tag = (e.target && e.target.tagName) ? e.target.tagName.toLowerCase() : '';
+  if (tag === 'input' || tag === 'textarea' || e.ctrlKey || e.metaKey || e.altKey) return;
+
+  const key = e.key.toLowerCase();
+  if (key === 's' && showAnswerBtn.style.display !== 'none') {
+    showAnswerBtn.click();
+  } else if (key === 'c' && rightBtn.style.display !== 'none') {
+    rightBtn.click();
+  } else if (key === 'w' && wrongBtn.style.display !== 'none') {
+    wrongBtn.click();
+  } else if (key === 'r') {
+    reviewBtn.click();
+  }
+});
+
+// Init
+if (typeof kanjiList !== 'undefined' && Array.isArray(kanjiList) && kanjiList.length > 0) {
   shuffle(kanjiList);
   showKanji(currentIndex);
-  updateCounters();
+  updateCounters(); // shows full "Remaining" on load
 } else {
-  kanjiDisplay.textContent = "No kanji data loaded!";
+  kanjiDisplay.textContent = 'No kanji data loaded!';
 }
