@@ -18,6 +18,20 @@ header h1 {
   margin-bottom: 40px;
 }
 
+/* Mode toggle button */
+.mode-toggle {
+  margin-bottom: 20px;
+  border: 2px solid #b387d7;
+  padding: 8px 16px;
+  background: #fff;
+  cursor: pointer;
+  border-radius: 5px;
+}
+.mode-toggle:hover {
+  background: #b387d7;
+  color: #fff;
+}
+
 /* Flashcard Layout with Proportional Scaling */
 .flashcard {
   width: 90%;
@@ -29,7 +43,7 @@ header h1 {
   border-radius: 10px;
   overflow: hidden;
   position: relative;
-  font-size: clamp(1rem, 4vw, 2rem); /* base size for the whole card */
+  font-size: clamp(1rem, 4vw, 2rem);
 }
 
 .card-left,
@@ -41,13 +55,18 @@ header h1 {
   padding: 20px;
 }
 
-/* Kanji side scales 2× base size */
+#kanji-display {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  text-align: center;
+}
+
 .card-left {
   background-color: #f0f0f0;
   font-size: 2em;
 }
 
-/* Meaning/reading side scales 1× base size */
 .card-right {
   background-color: #fff;
   border-left: 2px solid #333;
@@ -104,7 +123,6 @@ header h1 {
   background-color: #9b5fcf;
 }
 
-/* Hidden utility class */
 .hidden {
   display: none !important;
 }
@@ -126,45 +144,73 @@ header h1 {
   color: #fff;
 }
 
-/* Wrong Section */
-#wrong-section {
-  width: 90%;
-  max-width: 800px;
-  margin: 40px auto; /* more space around section */
-}
-
-#wrong-section h2 {
-  text-align: center;
-  margin-bottom: 15px; /* space between title and button */
-}
-
-#review {
-  display: block;
-  margin: 0 auto 25px auto; /* space below the button before the cards */
-  
-}
-
-#wrong-cards {
+/* Multiple Choice Layout */
+#choices {
   display: grid;
-  grid-template-columns: 1fr; /* single column on small screens */
-  gap: 20px; /* space between cards */
+  grid-template-columns: 1fr;
+  gap: 10px;
+  margin: 20px auto;
+  max-width: 400px;
 }
 
-/* Two-column layout for larger screens */
-@media (min-width: 700px) {
-  #wrong-cards {
+#choices button {
+  padding: 10px;
+  font-size: 1rem;
+  border: 2px solid #b387d7;
+  border-radius: 5px;
+  background-color: #b387d7;
+  color: #fff;
+  cursor: pointer;
+  transition: background-color 0.2s;
+}
+
+#choices button:hover:not(:disabled) {
+  background-color: #9b5fcf;
+}
+
+#choices button:disabled {
+  cursor: default;
+  opacity: 0.8;
+}
+
+/* Next button spans both columns */
+#choices button.next-btn {
+  grid-column: 1 / -1;
+}
+
+@media (min-width: 500px) {
+  #choices {
     grid-template-columns: 1fr 1fr;
   }
 }
 
-/* Status message styling */
-.status-message {
-  font-size: 1.2em;
-  color: #999;
+/* Wrong Section */
+#wrong-section {
+  width: 90%;
+  max-width: 800px;
+  margin: 40px auto;
+}
+
+#wrong-section h2 {
   text-align: center;
-  display: flex;
-  justify-content: center;
-  align-items: center;
+  margin-bottom: 15px;
+}
+
+#review {
+  display: block;
+  margin: 0 auto 25px auto;
+}
+
+#wrong-cards {
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: 20px;
+}
+
+@media (min-width: 700px) {
+  #wrong-cards {
+    grid-template-columns: 1fr 1fr;
+  }
 }
 
 .wrong-card {
@@ -178,7 +224,7 @@ header h1 {
 }
 
 .wrong-kanji {
-  font-size: 1.5em; /* scales with base font-size from .flashcard */
+  font-size: 1.5em;
   flex: 1;
   text-align: center;
 }
@@ -186,5 +232,15 @@ header h1 {
 .wrong-details {
   flex: 2;
   padding-left: 20px;
-  font-size: 0.8em; /* slightly smaller than base size */
+  font-size: 0.8em;
+}
+
+/* Status message */
+.status-message {
+  font-size: 1.2em;
+  color: #999;
+  text-align: center;
+  display: flex;
+  justify-content: center;
+  align-items: center;
 }

@@ -7,6 +7,8 @@ const rightBtn = document.getElementById('right');
 const wrongBtn = document.getElementById('wrong');
 const reviewBtn = document.getElementById('review');
 const wrongContainer = document.getElementById('wrong-cards');
+const choicesContainer = document.getElementById('choices');
+const toggleModeBtn = document.getElementById('toggle-mode');
 
 const correctCountDisplay = document.getElementById('correct-count');
 const wrongCountDisplay = document.getElementById('wrong-count');
@@ -18,6 +20,7 @@ let currentIndex = 0;
 let wrongList = [];
 let correctCount = 0;
 let wrongCount = 0;
+let quizMode = false;
 
 // Shuffle Array (Fisher–Yates)
 function shuffle(array) {
@@ -41,9 +44,18 @@ function showKanji(index) {
   kanjiDisplay.textContent = kanji.kanji;
   answerDisplay.textContent = '';
   overlay.classList.remove('hidden');
-  showElement(showAnswerBtn);
-  hideElement(rightBtn);
-  hideElement(wrongBtn);
+
+  if (quizMode) {
+    hideElement(showAnswerBtn);
+    hideElement(rightBtn);
+    hideElement(wrongBtn);
+    showChoices(kanji);
+  } else {
+    hideElement(choicesContainer);
+    showElement(showAnswerBtn);
+    hideElement(rightBtn);
+    hideElement(wrongBtn);
+  }
 }
 
 function updateCounters() {
@@ -55,6 +67,62 @@ function updateCounters() {
   const success = totalAnswered === 0 ? 0 : Math.round((correctCount / totalAnswered) * 100);
   successRateDisplay.textContent = `Success: ${success}%`;
 }
+
+// Multiple-choice mode
+function showChoices(correctKanji) {
+  choicesContainer.innerHTML = '';
+
+  const wrongAnswers = kanjiList
+    .filter(k => k !== correctKanji)
+    .sort(() => 0.5 - Math.random())
+    .slice(0, 3);
+
+  const allAnswers = [...wrongAnswers, correctKanji].sort(() => 0.5 - Math.random());
+
+  allAnswers.forEach((choice, idx) => {
+    const btn = document.createElement('button');
+    // Add the number key label before the meaning
+    btn.textContent = `${choice.meaning} (${idx + 1})`;
+
+    btn.addEventListener('click', () => {
+      const allBtns = choicesContainer.querySelectorAll('button');
+      allBtns.forEach(b => b.disabled = true);
+
+      allBtns.forEach(b => {
+        const isCorrect = b.textContent.includes(correctKanji.meaning);
+        b.style.backgroundColor = isCorrect ? '#66bb6a' : '#e57373';
+        b.style.color = '#fff';
+      });
+
+      if (choice === correctKanji) {
+        correctCount++;
+      } else {
+        wrongList.push(correctKanji);
+        wrongCount++;
+      }
+
+      answerDisplay.innerHTML = `
+        <p>${correctKanji.meaning}</p>
+        <p>${correctKanji.onyomi}</p>
+        <p>${correctKanji.kunyomi}</p>
+      `;
+      overlay.classList.add('hidden');
+
+      const nextBtn = document.createElement('button');
+      nextBtn.textContent = 'Next (§)';
+      nextBtn.classList.add('next-btn');
+      nextBtn.addEventListener('click', () => {
+        nextKanji();
+      });
+      choicesContainer.appendChild(nextBtn);
+    });
+
+    choicesContainer.appendChild(btn);
+  });
+
+  showElement(choicesContainer);
+}
+
 
 // Event Handlers
 showAnswerBtn.addEventListener('click', () => {
@@ -116,18 +184,53 @@ function showWrongList() {
   });
 }
 
+// Mode toggle
+toggleModeBtn.addEventListener('click', () => {
+  quizMode = !quizMode;
+  toggleModeBtn.textContent = quizMode ? 'Switch to Flashcard Mode (T)' : 'Switch to Multiple Choice (T)';
+
+  correctCount = 0;
+  wrongCount = 0;
+  wrongList = [];
+  currentIndex = 0;
+
+  shuffle(kanjiList);
+  updateCounters();
+  showKanji(currentIndex);
+});
+
 // Keyboard Shortcuts
 document.addEventListener('keydown', e => {
   const tag = e.target?.tagName?.toLowerCase();
   if (tag === 'input' || tag === 'textarea' || e.ctrlKey || e.metaKey || e.altKey) return;
 
-  switch (e.key.toLowerCase()) {
-    case 's': if (!showAnswerBtn.classList.contains('hidden')) showAnswerBtn.click(); break;
-    case 'c': if (!rightBtn.classList.contains('hidden')) rightBtn.click(); break;
-    case 'w': if (!wrongBtn.classList.contains('hidden')) wrongBtn.click(); break;
-    case 'r': reviewBtn.click(); break;
+  const key = e.key.toLowerCase();
+
+  if (!quizMode) {
+    // Flashcard mode
+    if (key === 's' && !showAnswerBtn.classList.contains('hidden')) showAnswerBtn.click();
+    if (key === 'c' && !rightBtn.classList.contains('hidden')) rightBtn.click();
+    if (key === 'w' && !wrongBtn.classList.contains('hidden')) wrongBtn.click();
+  } else {
+    // Multiple-choice mode
+    if (['1','2','3','4'].includes(key)) {
+      const index = parseInt(key) - 1;
+      const choiceButtons = choicesContainer.querySelectorAll('button:not(.next-btn)');
+      if (choiceButtons[index] && !choiceButtons[index].disabled) {
+        choiceButtons[index].click();
+      }
+    }
+    if (key === '§') {
+      const nextBtn = choicesContainer.querySelector('.next-btn');
+      if (nextBtn) nextBtn.click();
+    }
   }
+
+  // Works in both modes
+  if (key === 't') toggleModeBtn.click(); 
+  if (key === 'r') reviewBtn.click();
 });
+
 
 // Init
 if (Array.isArray(kanjiList) && kanjiList.length > 0) {
