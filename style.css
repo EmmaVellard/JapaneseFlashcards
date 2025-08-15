@@ -157,6 +157,16 @@ header h1 {
   }
 }
 
+/* Status message styling */
+.status-message {
+  font-size: 1.2em;
+  color: #999;
+  text-align: center;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
 .wrong-card {
   display: flex;
   align-items: center;

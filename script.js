@@ -136,4 +136,5 @@ if (Array.isArray(kanjiList) && kanjiList.length > 0) {
   updateCounters();
 } else {
   kanjiDisplay.textContent = 'No kanji data loaded!';
+  kanjiDisplay.classList.add('status-message');
 }
