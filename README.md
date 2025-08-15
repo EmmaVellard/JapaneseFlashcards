@@ -37,8 +37,8 @@ Test yourself by recalling the meaning and readings before revealing the answer.
 Choose the correct meaning from 4 possible answers.
 
 <p align="center">
-  <img src="Images/multiquiz.png" alt="Multiple Choice Quiz" width="400" />
-  <img src="Images/multianswer.png" alt="Multiple Choice Answer" width="400" />
+  <img src="Images/multiquiz.png" alt="Multiple Choice Quiz" width="400" valign="top" />
+  <img src="Images/multianswer.png" alt="Multiple Choice Answer" width="400" valign="top" />
 </p>
 
 **How it works:**
