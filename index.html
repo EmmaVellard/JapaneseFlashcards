@@ -3,17 +3,35 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>JLPT N5 Kanji Flashcards</title>
+  <title>JLPT Flashcards</title>
   <link rel="icon" href="data:image/svg+xml,<svg xmlns=%22http://www.w3.org/2000/svg%22 viewBox=%220 0 100 100%22><text y=%22.9em%22 font-size=%2290%22>🎴</text></svg>">
-  <link rel="stylesheet" href="style.css" />
+  <link rel="stylesheet" href="style.css?v=3" />
 </head>
 <body>
   <header>
-    <h1>JLPT N5 Kanji Flashcards</h1>
+    <h1>JLPT Flashcards</h1>
+    <p class="tagline">Kanji and vocabulary practice for JLPT N5, N4, or both</p>
   </header>
 
   <main>
-    <button id="toggle-mode" class="mode-toggle">Switch to Multiple Choice (T)</button>
+    <div class="top-controls">
+      <label class="study-picker" for="study-type-select">
+        Study
+        <select id="study-type-select">
+          <option value="kanji">Kanji</option>
+          <option value="vocabulary">Vocabulary</option>
+        </select>
+      </label>
+      <label class="level-picker" for="level-select">
+        Level
+        <select id="level-select">
+          <option value="N5">JLPT N5</option>
+          <option value="N4">JLPT N4</option>
+          <option value="ALL">JLPT N5 + N4</option>
+        </select>
+      </label>
+      <button id="toggle-mode" class="mode-toggle">Switch to Multiple Choice (T)</button>
+    </div>
 
     <div class="flashcard">
       <div class="card-left" id="kanji-display"></div>
@@ -39,13 +57,16 @@
     <div id="choices" class="hidden"></div>
 
     <section id="wrong-section">
-      <h2>Review Wrong Kanji</h2>
+      <h2 id="wrong-title">Review Wrong Cards</h2>
       <button id="review">Review Wrong (R)</button>
       <div id="wrong-cards"></div>
     </section>
   </main>
 
-  <script src="Lists/kanjiN5.js"></script>
-  <script src="script.js"></script>
+  <script src="Lists/kanjiN5.js?v=3"></script>
+  <script src="Lists/kanjiN4.js?v=3"></script>
+  <script src="Lists/vocabN5.js?v=3"></script>
+  <script src="Lists/vocabN4.js?v=3"></script>
+  <script src="script.js?v=3"></script>
 </body>
 </html>

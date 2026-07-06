@@ -66,11 +66,8 @@ const kanjiList = [
   { kanji: "道", meaning: "road, way", onyomi: "どう, とう", kunyomi: "みち" },
   { kanji: "自", meaning: "self", onyomi: "じ, し", kunyomi: "みずか-ら" },
   { kanji: "何", meaning: "what", onyomi: "か", kunyomi: "なに, なん" },
-  { kanji: "右", meaning: "right", onyomi: "う, ゆう", kunyomi: "みぎ" },
-  { kanji: "左", meaning: "left", onyomi: "さ, しゃ", kunyomi: "ひだり" },
   { kanji: "外", meaning: "outside", onyomi: "がい, げ", kunyomi: "そと, ほか" },
   { kanji: "小", meaning: "small", onyomi: "しょう", kunyomi: "ちい-さい, こ-, お-" },
-  { kanji: "中", meaning: "middle", onyomi: "ちゅう", kunyomi: "なか" },
   { kanji: "大", meaning: "big", onyomi: "だい, たい", kunyomi: "おお-きい" },
   { kanji: "安", meaning: "cheap, safe", onyomi: "あん", kunyomi: "やす-い" },
   { kanji: "新", meaning: "new", onyomi: "しん", kunyomi: "あたら-しい" },
@@ -93,12 +90,5 @@ const kanjiList = [
   { kanji: "買", meaning: "buy", onyomi: "ばい", kunyomi: "か-う" },
   { kanji: "売", meaning: "sell", onyomi: "ばい", kunyomi: "う-る" },
   { kanji: "会", meaning: "meet", onyomi: "かい, え", kunyomi: "あ-う" },
-  { kanji: "社", meaning: "company, shrine", onyomi: "しゃ", kunyomi: "-" },
-  { kanji: "話", meaning: "talk", onyomi: "わ", kunyomi: "はな-す" },
-  { kanji: "道", meaning: "road, way", onyomi: "どう", kunyomi: "みち" },
-  { kanji: "駅", meaning: "station", onyomi: "えき", kunyomi: "-" },
-  { kanji: "電", meaning: "electricity", onyomi: "でん", kunyomi: "-" },
-  { kanji: "車", meaning: "car", onyomi: "しゃ", kunyomi: "くるま" },
-  { kanji: "自", meaning: "self", onyomi: "じ", kunyomi: "みずか-ら" },
-  { kanji: "行", meaning: "go", onyomi: "こう, ぎょう", kunyomi: "い-く" }
+  { kanji: "社", meaning: "company, shrine", onyomi: "しゃ", kunyomi: "-" }
 ];

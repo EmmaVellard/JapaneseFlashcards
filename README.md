@@ -1,6 +1,6 @@
-<h1 align="center"> 🎴 JLPT N5 Kanji Flashcards 🎴</h1>
+<h1 align="center"> 🎴 JLPT Flashcards 🎴</h1>
 
-A simple, interactive web-based flashcard tool for learning **JLPT N5 kanji**.  
+A simple, interactive web-based flashcard tool for learning **JLPT N5 and N4 kanji and vocabulary**.
 Now includes **two learning modes** to suit different study styles: traditional flashcards and multiple-choice quizzes.
 
 ## Demo
@@ -17,6 +17,10 @@ You can run the webpage locally by opening `index.html` in your browser, or chec
 
 ## Modes
 
+Choose your study type (**Kanji** or **Vocabulary**) and level (**N5**, **N4**, or **N5 + N4**) from the selectors, then study the selected list in either mode.
+
+> Note: JLPT level lists are study references rather than official fixed exam lists. The vocabulary decks are curated starter lists and can be expanded over time.
+
 ### **1. Flashcard Mode**
 Test yourself by recalling the meaning and readings before revealing the answer.
 
@@ -26,10 +30,10 @@ Test yourself by recalling the meaning and readings before revealing the answer.
 </p>
 
 **How it works:**
-- A kanji is displayed.
-- Press **"Show Answer"** (or `S` key) to reveal its **meaning**, **onyomi**, and **kunyomi**.
+- A kanji or vocabulary word is displayed.
+- Press **"Show Answer"** (or `S` key) to reveal its answer details.
 - Mark it as **Correct** (`C` key) or **Wrong** (`W` key).
-- All wrong answers can be reviewed later in the “Review Wrong Kanji” section.
+- All wrong answers can be reviewed later in the “Review Wrong” section.
 
 ---
 
@@ -42,11 +46,11 @@ Choose the correct meaning from 4 possible answers.
 </p>
 
 **How it works:**
-- A kanji is shown along with **4 possible meanings**.
+- A kanji or vocabulary word is shown along with **4 possible meanings**.
 - Select your answer with a click **or** by pressing `1`, `2`, `3`, or `4`.
-- Correct answers are highlighted in **green**, wrong ones in **pink**.
-- Press **"Next"** (or `N` key) to go to the next question.
-- Counters for correct, wrong, and remaining are tracked separately for each mode.
+- Correct answers are highlighted in **green**, wrong ones in **red**.
+- Press **"Next"** / **"Finish"** (or `N` key) to move forward.
+- Counters for correct, wrong, remaining, and success rate are tracked for the current session.
 
 ---
 
@@ -62,15 +66,19 @@ Choose the correct meaning from 4 possible answers.
 - `N` → Next question
 
 **Both Modes:**
-- `M` → Switch between modes
+- `T` → Switch between modes
 - `R` → Review wrong kanji
 
 ---
 
 ## Features
 
+- Separate **JLPT N5** and **JLPT N4** kanji lists.
+- Separate **JLPT N5** and **JLPT N4** vocabulary starter lists, including hiragana-only and katakana words.
+- Combined **N5 + N4** sessions for studying both levels together.
 - Two modes: **Flashcards** and **Multiple Choice**.
-- Tracks correct, wrong, remaining, and success rate separately for each mode.
+- Tracks correct, wrong, remaining, and success rate for the current session.
+- Ends the session cleanly after each kanji has appeared once.
 - Review section for studying mistakes.
 - Responsive design that works on desktop and mobile.
 - Matching color scheme for correct/wrong answers for visual clarity.
@@ -82,5 +90,7 @@ Choose the correct meaning from 4 possible answers.
 - `index.html` – Main HTML structure.
 - `style.css` – Styles for flashcards, multiple choice, and responsive layout.
 - `Lists/kanjiN5.js` – Data file containing the list of N5 kanji with readings and meanings.
+- `Lists/kanjiN4.js` – Data file containing the list of N4 kanji with readings and meanings.
+- `Lists/vocabN5.js` – Data file containing N5 vocabulary, including hiragana and katakana words.
+- `Lists/vocabN4.js` – Data file containing N4 vocabulary, including hiragana and katakana words.
 - `script.js` – JavaScript logic for both modes, scoring, shortcuts, and review.
-
