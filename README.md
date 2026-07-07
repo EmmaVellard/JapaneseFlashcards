@@ -1,4 +1,4 @@
-<h1 align="center"> 🎴 JLPT Flashcards 🎴</h1>
+## 🎴 JLPT Flashcards 🎴
 
 A simple, interactive web-based flashcard tool for learning **JLPT N5 and N4 kanji and vocabulary**.
 Now includes **two learning modes** to suit different study styles: traditional flashcards and multiple-choice quizzes.
@@ -12,8 +12,6 @@ You can run the webpage locally by opening `index.html` in your browser, or chec
     🌐 View Live Website
   </a>
 </p>
-
----
 
 ## Modes
 
@@ -35,8 +33,6 @@ Test yourself by recalling the meaning and readings before revealing the answer.
 - Mark it as **Correct** (`C` key) or **Wrong** (`W` key).
 - All wrong answers can be reviewed later in the “Review Wrong” section.
 
----
-
 ### **2. Multiple Choice Mode**
 Choose the correct meaning or reading from 4 possible answers.
 
@@ -54,8 +50,6 @@ Choose the correct meaning or reading from 4 possible answers.
 - Press **"Next"** / **"Finish"** (or `N` key) to move forward.
 - Counters for correct, wrong, remaining, and success rate are tracked for the current session.
 
----
-
 ## Keyboard Shortcuts
 
 **Flashcard Mode:**
@@ -71,8 +65,6 @@ Choose the correct meaning or reading from 4 possible answers.
 - `T` → Switch between modes
 - `R` → Review wrong kanji
 
----
-
 ## Features
 
 - Separate **JLPT N5** and **JLPT N4** kanji lists.
@@ -85,8 +77,6 @@ Choose the correct meaning or reading from 4 possible answers.
 - Review section for studying mistakes.
 - Responsive design that works on desktop and mobile.
 - Matching color scheme for correct/wrong answers for visual clarity.
-
----
 
 ## Files
 
