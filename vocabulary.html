@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>JLPT Vocabulary Lists</title>
+  <link rel="icon" href="data:image/svg+xml,<svg xmlns=%22http://www.w3.org/2000/svg%22 viewBox=%220 0 100 100%22><text y=%22.9em%22 font-size=%2290%22>🎴</text></svg>">
+  <link rel="stylesheet" href="style.css?v=7" />
+</head>
+<body id="top" data-list-page="vocabulary">
+  <header>
+    <h1>JLPT Vocabulary Lists</h1>
+    <p class="tagline">Browse every vocabulary card currently included in the N5 and N4 decks</p>
+    <nav class="site-nav" aria-label="Main navigation">
+      <a href="index.html">Practice</a>
+      <a href="kanji.html">Kanji list</a>
+      <a href="vocabulary.html" aria-current="page">Vocabulary list</a>
+    </nav>
+  </header>
+
+  <main class="list-page">
+    <section class="list-intro">
+      <h2>Vocabulary Reference</h2>
+      <p>These starter lists include kanji words, hiragana-only words, and katakana loanwords.</p>
+      <div class="jump-links" aria-label="Jump to vocabulary level">
+        <a href="#n5-vocabulary">Go to N5</a>
+        <a href="#n4-vocabulary">Go to N4</a>
+      </div>
+    </section>
+
+    <section class="list-section" id="n5-vocabulary">
+      <h3>JLPT N5 Vocabulary <span id="vocab-n5-count"></span></h3>
+      <div class="table-wrap">
+        <table>
+          <thead>
+            <tr>
+              <th>Word</th>
+              <th>Reading</th>
+              <th>Meaning</th>
+              <th>Type</th>
+            </tr>
+          </thead>
+          <tbody id="vocab-n5-body"></tbody>
+        </table>
+      </div>
+    </section>
+
+    <section class="list-section" id="n4-vocabulary">
+      <h3>JLPT N4 Vocabulary <span id="vocab-n4-count"></span></h3>
+      <div class="table-wrap">
+        <table>
+          <thead>
+            <tr>
+              <th>Word</th>
+              <th>Reading</th>
+              <th>Meaning</th>
+              <th>Type</th>
+            </tr>
+          </thead>
+          <tbody id="vocab-n4-body"></tbody>
+        </table>
+      </div>
+    </section>
+  </main>
+
+  <a class="back-to-top" href="#top" aria-label="Back to top">^</a>
+
+  <script src="Lists/vocabN5.js?v=4"></script>
+  <script src="Lists/vocabN4.js?v=4"></script>
+  <script src="list-pages.js?v=2"></script>
+</body>
+</html>

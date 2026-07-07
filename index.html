@@ -5,12 +5,17 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>JLPT Flashcards</title>
   <link rel="icon" href="data:image/svg+xml,<svg xmlns=%22http://www.w3.org/2000/svg%22 viewBox=%220 0 100 100%22><text y=%22.9em%22 font-size=%2290%22>🎴</text></svg>">
-  <link rel="stylesheet" href="style.css?v=3" />
+  <link rel="stylesheet" href="style.css?v=7" />
 </head>
 <body>
   <header>
     <h1>JLPT Flashcards</h1>
     <p class="tagline">Kanji and vocabulary practice for JLPT N5, N4, or both</p>
+    <nav class="site-nav" aria-label="Main navigation">
+      <a href="index.html" aria-current="page">Practice</a>
+      <a href="kanji.html">Kanji list</a>
+      <a href="vocabulary.html">Vocabulary list</a>
+    </nav>
   </header>
 
   <main>
@@ -36,7 +41,7 @@
     <div class="flashcard">
       <div class="card-left" id="kanji-display"></div>
       <div class="card-right" id="answer-display"></div>
-      <div class="overlay" id="overlay"></div>
+      <div class="overlay" id="overlay" data-label="?"></div>
     </div>
 
     <div class="counters">
@@ -63,10 +68,10 @@
     </section>
   </main>
 
-  <script src="Lists/kanjiN5.js?v=3"></script>
-  <script src="Lists/kanjiN4.js?v=3"></script>
-  <script src="Lists/vocabN5.js?v=3"></script>
-  <script src="Lists/vocabN4.js?v=3"></script>
-  <script src="script.js?v=3"></script>
+  <script src="Lists/kanjiN5.js?v=4"></script>
+  <script src="Lists/kanjiN4.js?v=4"></script>
+  <script src="Lists/vocabN5.js?v=4"></script>
+  <script src="Lists/vocabN4.js?v=4"></script>
+  <script src="script.js?v=5"></script>
 </body>
 </html>

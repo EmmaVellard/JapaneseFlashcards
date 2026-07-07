@@ -48,6 +48,7 @@ let wrongList = [];
 let correctCount = 0;
 let wrongCount = 0;
 let quizMode = false;
+let currentQuestionType = 'meaning';
 let currentLevel = levelSelect.value;
 let currentStudyType = studyTypeSelect.value;
 
@@ -76,6 +77,29 @@ function getCardPrompt(item) {
   return item.kanji || item.word;
 }
 
+function shouldShowPromptReading(item) {
+  return currentStudyType === 'vocabulary' && quizMode && currentQuestionType !== 'reading' && item.reading && item.reading !== item.word;
+}
+
+function setCardPrompt(item) {
+  kanjiDisplay.replaceChildren();
+
+  if (shouldShowPromptReading(item)) {
+    const reading = document.createElement('span');
+    reading.className = 'prompt-reading';
+    reading.textContent = item.reading;
+
+    const word = document.createElement('span');
+    word.className = 'prompt-main';
+    word.textContent = item.word;
+
+    kanjiDisplay.append(reading, word);
+    return;
+  }
+
+  kanjiDisplay.textContent = getCardPrompt(item);
+}
+
 function getCardAnswerLines(item) {
   if (item.word) {
     return [
@@ -90,6 +114,64 @@ function getCardAnswerLines(item) {
     `Onyomi: ${item.onyomi}`,
     `Kunyomi: ${item.kunyomi}`
   ];
+}
+
+function getReadingAnswer(item) {
+  if (item.word) {
+    return item.reading;
+  }
+
+  return [
+    item.onyomi && `Onyomi: ${item.onyomi}`,
+    item.kunyomi && `Kunyomi: ${item.kunyomi}`
+  ].filter(Boolean).join(' / ');
+}
+
+function getQuizAnswer(item, questionType) {
+  if (questionType === 'reading') {
+    return getReadingAnswer(item);
+  }
+
+  return item.meaning;
+}
+
+function hasUsefulReadingQuestion(item) {
+  if (item.word) {
+    return item.reading && item.reading !== item.word;
+  }
+
+  return Boolean(item.onyomi || item.kunyomi);
+}
+
+function getUniqueWrongAnswers(correctCard, questionType) {
+  const correctAnswer = getQuizAnswer(correctCard, questionType);
+  const seen = new Set();
+
+  return currentDeck.reduce((answers, item) => {
+    if (item === correctCard) return answers;
+
+    const answer = getQuizAnswer(item, questionType);
+    if (!answer || answer === correctAnswer || seen.has(answer)) return answers;
+
+    seen.add(answer);
+    answers.push(answer);
+    return answers;
+  }, []);
+}
+
+function getQuizQuestionType(card) {
+  const questionTypes = ['meaning'];
+  const readingWrongAnswers = getUniqueWrongAnswers(card, 'reading');
+
+  if (hasUsefulReadingQuestion(card) && readingWrongAnswers.length >= 3) {
+    questionTypes.push('reading');
+  }
+
+  return questionTypes[Math.floor(Math.random() * questionTypes.length)];
+}
+
+function setQuizQuestionLabel(questionType) {
+  overlay.dataset.label = questionType === 'reading' ? 'Reading?' : 'Meaning?';
 }
 
 function getDeckLabel() {
@@ -138,9 +220,11 @@ function showMissingDeckMessage() {
 
 function showKanji(index) {
   const card = currentDeck[index];
-  kanjiDisplay.textContent = getCardPrompt(card);
+  currentQuestionType = quizMode ? getQuizQuestionType(card) : 'meaning';
+  setCardPrompt(card);
   kanjiDisplay.classList.remove('status-message');
   kanjiDisplay.classList.toggle('vocab-term', currentStudyType === 'vocabulary');
+  kanjiDisplay.classList.toggle('with-reading', shouldShowPromptReading(card));
   answerDisplay.replaceChildren();
   overlay.classList.remove('hidden');
 
@@ -150,6 +234,7 @@ function showKanji(index) {
     hideElement(wrongBtn);
     showChoices(card);
   } else {
+    overlay.dataset.label = '?';
     hideElement(choicesContainer);
     showElement(showAnswerBtn);
     hideElement(rightBtn);
@@ -170,17 +255,20 @@ function updateCounters() {
 // Multiple-choice mode
 function showChoices(correctKanji) {
   choicesContainer.replaceChildren();
+  const questionType = currentQuestionType;
+  const correctAnswer = getQuizAnswer(correctKanji, questionType);
+  setQuizQuestionLabel(questionType);
 
-  const wrongAnswers = currentDeck.filter(k => k !== correctKanji);
+  const wrongAnswers = getUniqueWrongAnswers(correctKanji, questionType);
   shuffle(wrongAnswers);
 
-  const allAnswers = [...wrongAnswers.slice(0, 3), correctKanji];
+  const allAnswers = [...wrongAnswers.slice(0, 3), correctAnswer];
   shuffle(allAnswers);
 
-  allAnswers.forEach((choice, idx) => {
+  allAnswers.forEach((answer, idx) => {
     const btn = document.createElement('button');
-    btn.textContent = `${idx + 1}. ${choice.meaning}`;
-    btn.dataset.correct = String(choice === correctKanji);
+    btn.textContent = `${idx + 1}. ${answer}`;
+    btn.dataset.correct = String(answer === correctAnswer);
 
     btn.addEventListener('click', () => {
       if (btn.disabled) return;
@@ -198,7 +286,7 @@ function showChoices(correctKanji) {
         }
       });
 
-      if (choice === correctKanji) {
+      if (answer === correctAnswer) {
         correctCount++;
       } else {
         wrongList.push(correctKanji);

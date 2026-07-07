@@ -38,7 +38,7 @@ Test yourself by recalling the meaning and readings before revealing the answer.
 ---
 
 ### **2. Multiple Choice Mode**
-Choose the correct meaning from 4 possible answers.
+Choose the correct meaning or reading from 4 possible answers.
 
 <p align="center">
   <img src="Images/multiquiz.png" alt="Multiple Choice Quiz" width="400" valign="top" />
@@ -46,7 +46,9 @@ Choose the correct meaning from 4 possible answers.
 </p>
 
 **How it works:**
-- A kanji or vocabulary word is shown along with **4 possible meanings**.
+- A kanji or vocabulary word is shown with **4 possible answers**.
+- Multiple-choice questions can ask for either the meaning or the reading when useful reading options are available.
+- Vocabulary quiz cards show the kana reading above words that use kanji.
 - Select your answer with a click **or** by pressing `1`, `2`, `3`, or `4`.
 - Correct answers are highlighted in **green**, wrong ones in **red**.
 - Press **"Next"** / **"Finish"** (or `N` key) to move forward.
@@ -76,9 +78,10 @@ Choose the correct meaning from 4 possible answers.
 - Separate **JLPT N5** and **JLPT N4** kanji lists.
 - Separate **JLPT N5** and **JLPT N4** vocabulary starter lists, including hiragana-only and katakana words.
 - Combined **N5 + N4** sessions for studying both levels together.
+- Browse pages for the full included kanji and vocabulary lists.
 - Two modes: **Flashcards** and **Multiple Choice**.
 - Tracks correct, wrong, remaining, and success rate for the current session.
-- Ends the session cleanly after each kanji has appeared once.
+- Ends the session cleanly after each card has appeared once.
 - Review section for studying mistakes.
 - Responsive design that works on desktop and mobile.
 - Matching color scheme for correct/wrong answers for visual clarity.
@@ -88,6 +91,9 @@ Choose the correct meaning from 4 possible answers.
 ## Files
 
 - `index.html` – Main HTML structure.
+- `kanji.html` – Browse page for all included N5 and N4 kanji.
+- `vocabulary.html` – Browse page for all included N5 and N4 vocabulary.
+- `list-pages.js` – Rendering logic for the browse pages.
 - `style.css` – Styles for flashcards, multiple choice, and responsive layout.
 - `Lists/kanjiN5.js` – Data file containing the list of N5 kanji with readings and meanings.
 - `Lists/kanjiN4.js` – Data file containing the list of N4 kanji with readings and meanings.
