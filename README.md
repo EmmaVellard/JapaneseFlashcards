@@ -1,4 +1,4 @@
-## 🎴 JLPT Flashcards
+# 🎴 JLPT Flashcards
 
 A simple, interactive web-based flashcard tool for learning **JLPT N5 and N4 kanji and vocabulary**.
 Now includes **two learning modes** to suit different study styles: traditional flashcards and multiple-choice quizzes.
