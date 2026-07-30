@@ -1,3 +1,11 @@
+const {
+  buildDecks,
+  createQuizQuestion,
+  getCardAnswerLines,
+  getCardPrompt,
+  shuffle
+} = StudyUtils;
+
 // DOM Elements
 const kanjiDisplay = document.getElementById('kanji-display');
 const answerDisplay = document.getElementById('answer-display');
@@ -5,41 +13,30 @@ const overlay = document.getElementById('overlay');
 const showAnswerBtn = document.getElementById('show-answer');
 const rightBtn = document.getElementById('right');
 const wrongBtn = document.getElementById('wrong');
-const reviewBtn = document.getElementById('review');
+const wrongSection = document.getElementById('wrong-section');
 const wrongContainer = document.getElementById('wrong-cards');
 const choicesContainer = document.getElementById('choices');
 const toggleModeBtn = document.getElementById('toggle-mode');
 const levelSelect = document.getElementById('level-select');
 const studyTypeSelect = document.getElementById('study-type-select');
 const wrongTitle = document.getElementById('wrong-title');
+const savedProgressDisplay = document.getElementById('saved-progress');
+const resetProgressBtn = document.getElementById('reset-progress');
+const sessionSummaryDisplay = document.getElementById('session-summary');
+const sessionProgressBar = document.getElementById('session-progress-bar');
+const questionTypeChip = document.getElementById('question-type-chip');
 
 const correctCountDisplay = document.getElementById('correct-count');
 const wrongCountDisplay = document.getElementById('wrong-count');
 const remainingCountDisplay = document.getElementById('remaining-count');
 const successRateDisplay = document.getElementById('success-rate');
 
-function mergeUniqueCards(...lists) {
-  const seen = new Set();
-  return lists.flat().filter(item => {
-    const key = item.kanji || item.word;
-    if (seen.has(key)) return false;
-    seen.add(key);
-    return true;
-  });
-}
-
-const deckCollections = {
-  kanji: {
-    N5: kanjiList,
-    N4: kanjiN4List,
-    ALL: mergeUniqueCards(kanjiList, kanjiN4List)
-  },
-  vocabulary: {
-    N5: vocabN5List,
-    N4: vocabN4List,
-    ALL: mergeUniqueCards(vocabN5List, vocabN4List)
-  }
-};
+const deckCollections = buildDecks({
+  kanjiN5: kanjiList,
+  kanjiN4: kanjiN4List,
+  vocabN5: vocabN5List,
+  vocabN4: vocabN4List
+});
 
 // State
 let currentIndex = 0;
@@ -48,16 +45,31 @@ let wrongList = [];
 let correctCount = 0;
 let wrongCount = 0;
 let quizMode = false;
-let currentQuestionType = 'meaning';
+let currentQuestion = null;
 let currentLevel = levelSelect.value;
 let currentStudyType = studyTypeSelect.value;
 
-// Shuffle Array (Fisher–Yates)
-function shuffle(array) {
-  for (let i = array.length - 1; i > 0; i--) {
-    const j = Math.floor(Math.random() * (i + 1));
-    [array[i], array[j]] = [array[j], array[i]];
+function restoreSavedSettings() {
+  const settings = ProgressStore.getSettings();
+  if (!settings) return;
+
+  if (deckCollections[settings.studyType]) {
+    studyTypeSelect.value = settings.studyType;
   }
+
+  if (deckCollections[studyTypeSelect.value]?.[settings.level]) {
+    levelSelect.value = settings.level;
+  }
+
+  quizMode = Boolean(settings.quizMode);
+}
+
+function saveCurrentSettings() {
+  ProgressStore.saveSettings({
+    studyType: currentStudyType,
+    level: currentLevel,
+    quizMode
+  });
 }
 
 // UI Helpers
@@ -73,109 +85,42 @@ function getAnsweredCount() {
   return correctCount + wrongCount;
 }
 
-function getCardPrompt(item) {
-  return item.kanji || item.word;
-}
-
-function shouldShowPromptReading(item) {
-  return currentStudyType === 'vocabulary' && quizMode && currentQuestionType !== 'reading' && item.reading && item.reading !== item.word;
-}
-
 function setCardPrompt(item) {
-  kanjiDisplay.replaceChildren();
+  const prompt = quizMode && currentQuestion ? currentQuestion.prompt : getCardPrompt(item);
+  const showPromptReading = quizMode && currentQuestion?.showPromptReading;
 
-  if (shouldShowPromptReading(item)) {
+  kanjiDisplay.replaceChildren();
+  kanjiDisplay.classList.remove('text-prompt', 'japanese-answer');
+
+  if (showPromptReading) {
     const reading = document.createElement('span');
     reading.className = 'prompt-reading';
     reading.textContent = item.reading;
 
     const word = document.createElement('span');
     word.className = 'prompt-main';
-    word.textContent = item.word;
+    word.textContent = prompt;
 
     kanjiDisplay.append(reading, word);
     return;
   }
 
-  kanjiDisplay.textContent = getCardPrompt(item);
-}
-
-function getCardAnswerLines(item) {
-  if (item.word) {
-    return [
-      item.meaning,
-      `Reading: ${item.reading}`,
-      `Type: ${item.type}`
-    ];
-  }
-
-  return [
-    item.meaning,
-    `Onyomi: ${item.onyomi}`,
-    `Kunyomi: ${item.kunyomi}`
-  ];
-}
-
-function getReadingAnswer(item) {
-  if (item.word) {
-    return item.reading;
-  }
-
-  return [
-    item.onyomi && `Onyomi: ${item.onyomi}`,
-    item.kunyomi && `Kunyomi: ${item.kunyomi}`
-  ].filter(Boolean).join(' / ');
-}
-
-function getQuizAnswer(item, questionType) {
-  if (questionType === 'reading') {
-    return getReadingAnswer(item);
-  }
-
-  return item.meaning;
-}
-
-function hasUsefulReadingQuestion(item) {
-  if (item.word) {
-    return item.reading && item.reading !== item.word;
-  }
-
-  return Boolean(item.onyomi || item.kunyomi);
-}
-
-function getUniqueWrongAnswers(correctCard, questionType) {
-  const correctAnswer = getQuizAnswer(correctCard, questionType);
-  const seen = new Set();
-
-  return currentDeck.reduce((answers, item) => {
-    if (item === correctCard) return answers;
-
-    const answer = getQuizAnswer(item, questionType);
-    if (!answer || answer === correctAnswer || seen.has(answer)) return answers;
-
-    seen.add(answer);
-    answers.push(answer);
-    return answers;
-  }, []);
-}
-
-function getQuizQuestionType(card) {
-  const questionTypes = ['meaning'];
-  const readingWrongAnswers = getUniqueWrongAnswers(card, 'reading');
-
-  if (hasUsefulReadingQuestion(card) && readingWrongAnswers.length >= 3) {
-    questionTypes.push('reading');
-  }
-
-  return questionTypes[Math.floor(Math.random() * questionTypes.length)];
-}
-
-function setQuizQuestionLabel(questionType) {
-  overlay.dataset.label = questionType === 'reading' ? 'Reading?' : 'Meaning?';
+  kanjiDisplay.textContent = prompt;
+  kanjiDisplay.classList.toggle('text-prompt', currentQuestion?.promptKind === 'text');
 }
 
 function getDeckLabel() {
   return currentStudyType === 'vocabulary' ? 'vocabulary' : 'kanji';
+}
+
+function getQuestionChipLabel() {
+  if (!quizMode) return 'Flashcard';
+  return currentQuestion?.label.replace('?', '') || 'Quiz';
+}
+
+function updateQuestionChip(label = getQuestionChipLabel()) {
+  questionTypeChip.textContent = label;
+  questionTypeChip.dataset.mode = quizMode ? 'quiz' : 'flashcard';
 }
 
 function setAnswerDetails(item) {
@@ -189,12 +134,15 @@ function setAnswerDetails(item) {
 }
 
 function showCompletionMessage() {
+  const progress = ProgressStore.getDeckProgress(currentDeck);
   kanjiDisplay.textContent = 'Done!';
+  kanjiDisplay.classList.remove('with-reading', 'text-prompt');
+  updateQuestionChip('Complete');
   answerDisplay.replaceChildren();
   [
     'Session complete',
     `${correctCount} correct / ${wrongCount} wrong`,
-    'Review wrong cards below, or change study type, level, or mode to restart.'
+    `${progress.seen}/${currentDeck.length} cards now have saved progress`
   ].forEach(text => {
     const paragraph = document.createElement('p');
     paragraph.textContent = text;
@@ -211,6 +159,7 @@ function showMissingDeckMessage() {
   kanjiDisplay.textContent = 'No study data loaded!';
   answerDisplay.replaceChildren();
   kanjiDisplay.classList.add('status-message');
+  updateQuestionChip('No data');
   hideElement(showAnswerBtn);
   hideElement(rightBtn);
   hideElement(wrongBtn);
@@ -220,11 +169,13 @@ function showMissingDeckMessage() {
 
 function showKanji(index) {
   const card = currentDeck[index];
-  currentQuestionType = quizMode ? getQuizQuestionType(card) : 'meaning';
+  currentQuestion = quizMode ? createQuizQuestion(card, currentDeck) : null;
+
+  updateQuestionChip();
   setCardPrompt(card);
   kanjiDisplay.classList.remove('status-message');
-  kanjiDisplay.classList.toggle('vocab-term', currentStudyType === 'vocabulary');
-  kanjiDisplay.classList.toggle('with-reading', shouldShowPromptReading(card));
+  kanjiDisplay.classList.toggle('vocab-term', currentStudyType === 'vocabulary' && currentQuestion?.promptKind !== 'text');
+  kanjiDisplay.classList.toggle('with-reading', Boolean(currentQuestion?.showPromptReading));
   answerDisplay.replaceChildren();
   overlay.classList.remove('hidden');
 
@@ -250,88 +201,73 @@ function updateCounters() {
   const totalAnswered = getAnsweredCount();
   const success = totalAnswered === 0 ? 0 : Math.round((correctCount / totalAnswered) * 100);
   successRateDisplay.textContent = `Success: ${success}%`;
+
+  const progress = ProgressStore.getDeckProgress(currentDeck);
+  savedProgressDisplay.textContent = `Saved: ${progress.seen}/${currentDeck.length} seen`;
+  sessionSummaryDisplay.textContent = `${currentDeck.length} cards • ${totalAnswered} studied • ${remaining} remaining`;
+  sessionProgressBar.style.width = `${currentDeck.length === 0 ? 0 : Math.round((totalAnswered / currentDeck.length) * 100)}%`;
+}
+
+function recordAnswer(card, isCorrect) {
+  ProgressStore.recordAnswer(card, isCorrect);
+
+  if (isCorrect) {
+    correctCount++;
+  } else {
+    wrongList.push(card);
+    wrongCount++;
+  }
+
+  updateCounters();
+}
+
+function createChoiceButton(answer, idx, correctAnswer) {
+  const btn = document.createElement('button');
+  btn.textContent = `${idx + 1}. ${answer}`;
+  btn.dataset.correct = String(answer === correctAnswer);
+  btn.classList.toggle('japanese-choice', currentQuestion.answerKind === 'japanese');
+
+  btn.addEventListener('click', () => {
+    if (btn.disabled) return;
+
+    const allBtns = choicesContainer.querySelectorAll('button:not(.next-btn)');
+    allBtns.forEach(b => b.disabled = true);
+
+    allBtns.forEach(b => {
+      if (b.dataset.correct === 'true') {
+        b.classList.add('correct-answer');
+      } else if (b === btn) {
+        b.classList.add('wrong-answer');
+      } else {
+        b.classList.add('inactive-answer');
+      }
+    });
+
+    recordAnswer(currentDeck[currentIndex], answer === correctAnswer);
+    setAnswerDetails(currentDeck[currentIndex]);
+    overlay.classList.add('hidden');
+
+    const nextBtn = document.createElement('button');
+    nextBtn.textContent = getAnsweredCount() === currentDeck.length ? 'Finish' : 'Next';
+    nextBtn.classList.add('next-btn');
+    nextBtn.addEventListener('click', nextKanji);
+    choicesContainer.appendChild(nextBtn);
+  });
+
+  return btn;
 }
 
 // Multiple-choice mode
-function showChoices(correctKanji) {
+function showChoices(correctCard) {
   choicesContainer.replaceChildren();
-  const questionType = currentQuestionType;
-  const correctAnswer = getQuizAnswer(correctKanji, questionType);
-  setQuizQuestionLabel(questionType);
+  overlay.dataset.label = currentQuestion.label;
 
-  const wrongAnswers = getUniqueWrongAnswers(correctKanji, questionType);
-  shuffle(wrongAnswers);
-
-  const allAnswers = [...wrongAnswers.slice(0, 3), correctAnswer];
-  shuffle(allAnswers);
-
-  allAnswers.forEach((answer, idx) => {
-    const btn = document.createElement('button');
-    btn.textContent = `${idx + 1}. ${answer}`;
-    btn.dataset.correct = String(answer === correctAnswer);
-
-    btn.addEventListener('click', () => {
-      if (btn.disabled) return;
-
-      const allBtns = choicesContainer.querySelectorAll('button:not(.next-btn)');
-      allBtns.forEach(b => b.disabled = true);
-
-      allBtns.forEach(b => {
-        if (b.dataset.correct === 'true') {
-          b.classList.add('correct-answer');
-        } else if (b === btn) {
-          b.classList.add('wrong-answer');
-        } else {
-          b.classList.add('inactive-answer');
-        }
-      });
-
-      if (answer === correctAnswer) {
-        correctCount++;
-      } else {
-        wrongList.push(correctKanji);
-        wrongCount++;
-      }
-      updateCounters();
-
-      setAnswerDetails(correctKanji);
-      overlay.classList.add('hidden');
-
-      const nextBtn = document.createElement('button');
-      nextBtn.textContent = getAnsweredCount() === currentDeck.length ? 'Finish (N)' : 'Next (N)';
-      nextBtn.classList.add('next-btn');
-      nextBtn.addEventListener('click', () => {
-        nextKanji();
-      });
-      choicesContainer.appendChild(nextBtn);
-    });
-
-    choicesContainer.appendChild(btn);
+  currentQuestion.choices.forEach((answer, idx) => {
+    choicesContainer.appendChild(createChoiceButton(answer, idx, currentQuestion.answer));
   });
 
   showElement(choicesContainer);
 }
-
-
-// Event Handlers
-showAnswerBtn.addEventListener('click', () => {
-  setAnswerDetails(currentDeck[currentIndex]);
-  overlay.classList.add('hidden');
-  hideElement(showAnswerBtn);
-  showElement(rightBtn);
-  showElement(wrongBtn);
-});
-
-rightBtn.addEventListener('click', () => {
-  correctCount++;
-  nextKanji();
-});
-
-wrongBtn.addEventListener('click', () => {
-  wrongList.push(currentDeck[currentIndex]);
-  wrongCount++;
-  nextKanji();
-});
 
 function nextKanji() {
   currentIndex++;
@@ -345,14 +281,42 @@ function nextKanji() {
   showKanji(currentIndex);
 }
 
-reviewBtn.addEventListener('click', showWrongList);
+// Event Handlers
+showAnswerBtn.addEventListener('click', () => {
+  setAnswerDetails(currentDeck[currentIndex]);
+  overlay.classList.add('hidden');
+  hideElement(showAnswerBtn);
+  showElement(rightBtn);
+  showElement(wrongBtn);
+});
+
+rightBtn.addEventListener('click', () => {
+  recordAnswer(currentDeck[currentIndex], true);
+  nextKanji();
+});
+
+wrongBtn.addEventListener('click', () => {
+  recordAnswer(currentDeck[currentIndex], false);
+  nextKanji();
+});
+
+wrongSection.addEventListener('toggle', () => {
+  if (wrongSection.open) showWrongList();
+});
+
+resetProgressBtn.addEventListener('click', () => {
+  if (!confirm('Clear saved progress for all cards?')) return;
+  ProgressStore.clearProgress();
+  resetSession();
+});
 
 function showWrongList() {
   wrongContainer.replaceChildren();
   if (wrongList.length === 0) {
-    wrongContainer.textContent = "No wrong cards yet!";
+    wrongContainer.textContent = 'No wrong cards yet!';
     return;
   }
+
   wrongList.forEach(k => {
     const card = document.createElement('div');
     card.className = 'wrong-card';
@@ -375,21 +339,28 @@ function showWrongList() {
   });
 }
 
+function openWrongReview() {
+  wrongSection.open = true;
+  showWrongList();
+}
+
 function resetSession() {
   currentStudyType = studyTypeSelect.value;
   currentLevel = levelSelect.value;
-  currentDeck = [...(deckCollections[currentStudyType]?.[currentLevel] || [])];
+  const selectedDeck = deckCollections[currentStudyType]?.[currentLevel] || [];
+  currentDeck = ProgressStore.sortDeckForStudy(shuffle([...selectedDeck]));
 
-  toggleModeBtn.textContent = quizMode ? 'Switch to Flashcard Mode (T)' : 'Switch to Multiple Choice (T)';
+  toggleModeBtn.textContent = quizMode ? 'Switch to Flashcard Mode' : 'Switch to Multiple Choice';
   wrongTitle.textContent = `Review Wrong ${getDeckLabel()[0].toUpperCase()}${getDeckLabel().slice(1)}`;
 
   correctCount = 0;
   wrongCount = 0;
   wrongList = [];
   currentIndex = 0;
+  currentQuestion = null;
+  wrongSection.open = false;
   wrongContainer.replaceChildren();
-
-  shuffle(currentDeck);
+  saveCurrentSettings();
   updateCounters();
 
   if (currentDeck.length === 0) {
@@ -417,14 +388,12 @@ document.addEventListener('keydown', e => {
   const key = e.key.toLowerCase();
 
   if (!quizMode) {
-    // Flashcard mode
     if (key === 's' && !showAnswerBtn.classList.contains('hidden')) showAnswerBtn.click();
     if (key === 'c' && !rightBtn.classList.contains('hidden')) rightBtn.click();
     if (key === 'w' && !wrongBtn.classList.contains('hidden')) wrongBtn.click();
   } else {
-    // Multiple-choice mode
-    if (['1','2','3','4'].includes(key)) {
-      const index = parseInt(key) - 1;
+    if (['1', '2', '3', '4'].includes(key)) {
+      const index = parseInt(key, 10) - 1;
       const choiceButtons = choicesContainer.querySelectorAll('button:not(.next-btn)');
       if (choiceButtons[index] && !choiceButtons[index].disabled) {
         choiceButtons[index].click();
@@ -436,11 +405,10 @@ document.addEventListener('keydown', e => {
     }
   }
 
-  // Works in both modes
-  if (key === 't') toggleModeBtn.click(); 
-  if (key === 'r') reviewBtn.click();
+  if (key === 't') toggleModeBtn.click();
+  if (key === 'r') openWrongReview();
 });
 
-
 // Init
+restoreSavedSettings();
 resetSession();

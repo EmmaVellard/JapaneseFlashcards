@@ -5,7 +5,7 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>JLPT Vocabulary Lists</title>
   <link rel="icon" href="data:image/svg+xml,<svg xmlns=%22http://www.w3.org/2000/svg%22 viewBox=%220 0 100 100%22><text y=%22.9em%22 font-size=%2290%22>🎴</text></svg>">
-  <link rel="stylesheet" href="style.css?v=7" />
+  <link rel="stylesheet" href="style.css?v=14" />
 </head>
 <body id="top" data-list-page="vocabulary">
   <header>
@@ -25,6 +25,52 @@
       <div class="jump-links" aria-label="Jump to vocabulary level">
         <a href="#n5-vocabulary">Go to N5</a>
         <a href="#n4-vocabulary">Go to N4</a>
+      </div>
+      <div class="list-tools" aria-label="Vocabulary filters">
+        <label class="filter-field" for="list-search">
+          Search
+          <input id="list-search" type="search" placeholder="word, reading, meaning..." />
+        </label>
+        <label class="filter-field" for="level-filter">
+          Level
+          <select id="level-filter">
+            <option value="ALL">N5 + N4</option>
+            <option value="N5">N5 only</option>
+            <option value="N4">N4 only</option>
+          </select>
+        </label>
+        <label class="filter-field" for="script-filter">
+          Script
+          <select id="script-filter">
+            <option value="ALL">All scripts</option>
+            <option value="kanji-word">Kanji words</option>
+            <option value="hiragana">Hiragana</option>
+            <option value="katakana">Katakana</option>
+          </select>
+        </label>
+        <label class="filter-field" for="type-filter">
+          Type
+          <select id="type-filter">
+            <option value="ALL">All types</option>
+            <option value="noun">Noun</option>
+            <option value="verb">Verb</option>
+            <option value="adjective">Adjective</option>
+            <option value="adverb">Adverb</option>
+            <option value="pronoun">Pronoun</option>
+            <option value="expression">Expression</option>
+          </select>
+        </label>
+        <label class="filter-field" for="sort-filter">
+          Sort
+          <select id="sort-filter">
+            <option value="default">Deck order</option>
+            <option value="japanese">Word</option>
+            <option value="reading">Reading</option>
+            <option value="meaning">Meaning</option>
+            <option value="type">Type</option>
+          </select>
+        </label>
+        <button id="clear-list-filters" type="button">Clear</button>
       </div>
     </section>
 
@@ -67,6 +113,7 @@
 
   <script src="Lists/vocabN5.js?v=4"></script>
   <script src="Lists/vocabN4.js?v=4"></script>
-  <script src="list-pages.js?v=2"></script>
+  <script src="study-utils.js?v=1"></script>
+  <script src="list-pages.js?v=3"></script>
 </body>
 </html>

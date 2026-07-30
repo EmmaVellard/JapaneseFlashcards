@@ -1,7 +1,7 @@
 # 🎴 JLPT Flashcards
 
 A simple, interactive web-based flashcard tool for learning **JLPT N5 and N4 kanji and vocabulary**.
-Now includes **two learning modes** to suit different study styles: traditional flashcards and multiple-choice quizzes.
+It includes flashcards, multiple-choice quizzes, searchable reference lists, saved progress, and light spaced-repetition ordering.
 
 ## Demo
 
@@ -31,6 +31,7 @@ Test yourself by recalling the meaning and readings before revealing the answer.
 - A kanji or vocabulary word is displayed.
 - Press **"Show Answer"** (or `S` key) to reveal its answer details.
 - Mark it as **Correct** (`C` key) or **Wrong** (`W` key).
+- Progress is saved locally and used to bring newer, due, and harder cards earlier in future sessions.
 - All wrong answers can be reviewed later in the “Review Wrong” section.
 
 ### **2. Multiple Choice Mode**
@@ -43,7 +44,7 @@ Choose the correct meaning or reading from 4 possible answers.
 
 **How it works:**
 - A kanji or vocabulary word is shown with **4 possible answers**.
-- Multiple-choice questions can ask for either the meaning or the reading when useful reading options are available.
+- Multiple-choice questions can ask for meaning, reading, Japanese from English, or Japanese from reading.
 - Vocabulary quiz cards show the kana reading above words that use kanji.
 - Select your answer with a click **or** by pressing `1`, `2`, `3`, or `4`.
 - Correct answers are highlighted in **green**, wrong ones in **red**.
@@ -70,9 +71,11 @@ Choose the correct meaning or reading from 4 possible answers.
 - Separate **JLPT N5** and **JLPT N4** kanji lists.
 - Separate **JLPT N5** and **JLPT N4** vocabulary starter lists, including hiragana-only and katakana words.
 - Combined **N5 + N4** sessions for studying both levels together.
-- Browse pages for the full included kanji and vocabulary lists.
+- Searchable and filterable browse pages for the full included kanji and vocabulary lists.
 - Two modes: **Flashcards** and **Multiple Choice**.
-- Tracks correct, wrong, remaining, and success rate for the current session.
+- Tracks correct, wrong, remaining, success rate, and saved progress.
+- Light spaced-repetition scheduling using browser `localStorage`.
+- Quiz variety includes Japanese to meaning, Japanese to reading, English to Japanese, and reading to Japanese.
 - Ends the session cleanly after each card has appeared once.
 - Review section for studying mistakes.
 - Responsive design that works on desktop and mobile.
@@ -83,10 +86,22 @@ Choose the correct meaning or reading from 4 possible answers.
 - `index.html` – Main HTML structure.
 - `kanji.html` – Browse page for all included N5 and N4 kanji.
 - `vocabulary.html` – Browse page for all included N5 and N4 vocabulary.
-- `list-pages.js` – Rendering logic for the browse pages.
+- `study-utils.js` – Shared card normalization, quiz generation, filtering helpers, and deck utilities.
+- `progress-store.js` – Saved progress and spaced-repetition scheduling.
+- `list-pages.js` – Search, filter, sort, and rendering logic for the browse pages.
 - `style.css` – Styles for flashcards, multiple choice, and responsive layout.
 - `Lists/kanjiN5.js` – Data file containing the list of N5 kanji with readings and meanings.
 - `Lists/kanjiN4.js` – Data file containing the list of N4 kanji with readings and meanings.
 - `Lists/vocabN5.js` – Data file containing N5 vocabulary, including hiragana and katakana words.
 - `Lists/vocabN4.js` – Data file containing N4 vocabulary, including hiragana and katakana words.
 - `script.js` – JavaScript logic for both modes, scoring, shortcuts, and review.
+- `tests/logic.test.js` – Basic logic tests for decks, quiz choices, and saved progress.
+
+## Development
+
+Run syntax checks and logic tests with:
+
+```bash
+npm run check
+npm test
+```
