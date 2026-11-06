@@ -1,5 +1,6 @@
 const {
   buildDecks,
+  hasPartOfSpeech,
   getSearchText,
   getWritingSystem,
   normalizeText
@@ -39,10 +40,13 @@ function createCell(text, className) {
 function createBadgeCell(text, className) {
   const cell = createCell('', className);
   const parts = Array.isArray(text)
-    ? text.map(part => String(part).trim()).filter(Boolean)
-    : String(text || '').split(',').map(part => part.trim()).filter(Boolean);
+    ? text.map((part) => String(part).trim()).filter(Boolean)
+    : String(text || '')
+        .split(',')
+        .map((part) => part.trim())
+        .filter(Boolean);
 
-  parts.forEach(part => {
+  parts.forEach((part) => {
     const badge = document.createElement('span');
     badge.className = 'table-badge';
     badge.textContent = part;
@@ -70,9 +74,9 @@ function renderRows(tbodyId, rows, mapCells, emptyMessage) {
   if (rows.length === 0) {
     fragment.appendChild(createEmptyRow(mapCells.colspan || 4, emptyMessage));
   } else {
-    rows.forEach(row => {
+    rows.forEach((row) => {
       const tr = document.createElement('tr');
-      mapCells(row).forEach(cell => tr.appendChild(cell));
+      mapCells(row).forEach((cell) => tr.appendChild(cell));
       fragment.appendChild(tr);
     });
   }
@@ -92,8 +96,9 @@ function getFilterState() {
 
 function matchesFilters(item, state) {
   if (state.search && !getSearchText(item).includes(state.search)) return false;
-  if (state.script !== 'ALL' && getWritingSystem(item) !== state.script) return false;
-  if (state.type !== 'ALL' && !normalizeText(item.type).includes(state.type)) return false;
+  if (state.script !== 'ALL' && getWritingSystem(item) !== state.script)
+    return false;
+  if (state.type !== 'ALL' && !hasPartOfSpeech(item, state.type)) return false;
   return true;
 }
 
@@ -112,12 +117,17 @@ function getSortValue(item, sort) {
 
 function sortRows(rows, sort) {
   if (sort === 'default') return rows;
-  return [...rows].sort((a, b) => getSortValue(a, sort).localeCompare(getSortValue(b, sort)));
+  return [...rows].sort((a, b) =>
+    getSortValue(a, sort).localeCompare(getSortValue(b, sort))
+  );
 }
 
 function getRowsForLevel(level, state) {
   if (state.level !== 'ALL' && state.level !== level) return [];
-  return sortRows(pageDeck[level].filter(item => matchesFilters(item, state)), state.sort);
+  return sortRows(
+    pageDeck[level].filter((item) => matchesFilters(item, state)),
+    state.sort
+  );
 }
 
 function updateSection(sectionId, visible) {
@@ -135,7 +145,7 @@ function renderKanjiLists() {
   updateSection('n5-kanji', state.level === 'ALL' || state.level === 'N5');
   updateSection('n4-kanji', state.level === 'ALL' || state.level === 'N4');
 
-  const kanjiCells = item => [
+  const kanjiCells = (item) => [
     createCell(item.kanji, 'table-japanese table-kanji'),
     createCell(item.meaning),
     createCell(item.onyomi, 'table-reading'),
@@ -143,8 +153,18 @@ function renderKanjiLists() {
   ];
   kanjiCells.colspan = 4;
 
-  renderRows('kanji-n5-body', n5Rows, kanjiCells, 'No N5 kanji match these filters.');
-  renderRows('kanji-n4-body', n4Rows, kanjiCells, 'No N4 kanji match these filters.');
+  renderRows(
+    'kanji-n5-body',
+    n5Rows,
+    kanjiCells,
+    'No N5 kanji match these filters.'
+  );
+  renderRows(
+    'kanji-n4-body',
+    n4Rows,
+    kanjiCells,
+    'No N4 kanji match these filters.'
+  );
 }
 
 function renderVocabularyLists() {
@@ -157,16 +177,29 @@ function renderVocabularyLists() {
   updateSection('n5-vocabulary', state.level === 'ALL' || state.level === 'N5');
   updateSection('n4-vocabulary', state.level === 'ALL' || state.level === 'N4');
 
-  const vocabCells = item => [
+  const vocabCells = (item) => [
     createCell(item.word, 'table-japanese'),
     createCell(item.reading, 'table-reading'),
     createCell(item.meaning),
-    createBadgeCell([getWritingSystem(item).replace('-', ' '), ...item.type.split(',')])
+    createBadgeCell([
+      getWritingSystem(item).replace('-', ' '),
+      ...item.type.split(',')
+    ])
   ];
   vocabCells.colspan = 4;
 
-  renderRows('vocab-n5-body', n5Rows, vocabCells, 'No N5 vocabulary matches these filters.');
-  renderRows('vocab-n4-body', n4Rows, vocabCells, 'No N4 vocabulary matches these filters.');
+  renderRows(
+    'vocab-n5-body',
+    n5Rows,
+    vocabCells,
+    'No N5 vocabulary matches these filters.'
+  );
+  renderRows(
+    'vocab-n4-body',
+    n4Rows,
+    vocabCells,
+    'No N4 vocabulary matches these filters.'
+  );
 }
 
 function renderPage() {
@@ -175,7 +208,7 @@ function renderPage() {
 }
 
 function setupListFilters() {
-  Object.values(listControls).forEach(control => {
+  Object.values(listControls).forEach((control) => {
     if (!control || control === listControls.clear) return;
     control.addEventListener('input', renderPage);
     control.addEventListener('change', renderPage);
@@ -188,6 +221,7 @@ function setupListFilters() {
     if (listControls.type) listControls.type.value = 'ALL';
     if (listControls.sort) listControls.sort.value = 'default';
     renderPage();
+    window.SelectControls?.refresh();
   });
 }
 
@@ -195,19 +229,16 @@ function setupBackToTopButton() {
   const button = document.querySelector('.back-to-top');
   if (!button) return;
 
-  let lastScrollY = window.scrollY;
-
   const toggleButton = () => {
-    const currentScrollY = window.scrollY;
-    const isPastIntro = currentScrollY > 180;
-    const isScrollingUp = currentScrollY < lastScrollY;
-
-    button.classList.toggle('is-visible', isPastIntro && isScrollingUp);
-    lastScrollY = currentScrollY;
+    const visible = window.scrollY > 320;
+    button.classList.toggle('is-visible', visible);
+    button.tabIndex = visible ? 0 : -1;
+    button.setAttribute('aria-hidden', String(!visible));
   };
 
   window.addEventListener('scroll', toggleButton, { passive: true });
   window.addEventListener('load', toggleButton);
+  window.addEventListener('resize', toggleButton);
   toggleButton();
 }
 

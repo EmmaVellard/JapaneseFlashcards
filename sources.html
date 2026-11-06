@@ -1,0 +1,181 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta
+      name="description"
+      content="Sources, study coverage, and reading conventions for Japanese Flashcards."
+    />
+    <title>About the decks | Japanese Flashcards</title>
+    <link rel="icon" href="assets/favicon.svg" type="image/svg+xml" />
+    <link
+      rel="preload"
+      href="assets/fonts/fraunces-latin.woff2"
+      as="font"
+      type="font/woff2"
+      crossorigin
+    />
+    <link
+      rel="preload"
+      href="assets/fonts/nunito-latin.woff2"
+      as="font"
+      type="font/woff2"
+      crossorigin
+    />
+    <script src="theme.js?v=1"></script>
+    <link rel="stylesheet" href="style.css?v=20" />
+  </head>
+  <body>
+    <a class="skip-link" href="#main">Skip to content</a>
+    <header class="site-header">
+      <div class="header-inner">
+        <a
+          class="brand"
+          href="index.html"
+          aria-label="Japanese Flashcards home"
+        >
+          <span class="brand-mark" lang="ja" aria-hidden="true">日</span>
+          <span class="brand-name">Japanese Flashcards</span>
+        </a>
+        <nav class="site-nav" aria-label="Main navigation">
+          <a href="index.html">Practice</a>
+          <a href="kanji.html">Kanji</a>
+          <a href="vocabulary.html">Vocabulary</a>
+        </nav>
+        <button
+          class="theme-toggle"
+          type="button"
+          aria-label="Switch to dark mode"
+        >
+          <svg class="moon-icon" viewBox="0 0 24 24" aria-hidden="true">
+            <path d="M20.9 13.1A9 9 0 0 1 10.9 3a9 9 0 1 0 10 10.1Z" />
+          </svg>
+          <svg class="sun-icon" viewBox="0 0 24 24" aria-hidden="true">
+            <circle cx="12" cy="12" r="4" />
+            <path
+              d="M12 2v2m0 16v2M2 12h2m16 0h2M5 5l1.5 1.5m11 11L19 19M5 19l1.5-1.5m11-11L19 5"
+            />
+          </svg>
+        </button>
+      </div>
+    </header>
+
+    <main id="main" class="sources-page">
+      <div class="page-intro">
+        <div>
+          <p class="eyebrow">About the decks</p>
+          <h1>A clearer picture of what you study.</h1>
+          <p class="intro-copy">
+            Where the words come from, what the levels mean, and how to read the
+            cards.
+          </p>
+        </div>
+      </div>
+      <section class="source-note">
+        <h2>Study lists, with room for nuance.</h2>
+        <p>
+          The JLPT does not publish an official exhaustive vocabulary or kanji
+          syllabus. These N5 and N4 labels are community study guidance, not a
+          guarantee of exam coverage.
+        </p>
+        <p>
+          The current decks contain
+          <strong
+            >84 N5 kanji, 169 N4 kanji, 681 N5 vocabulary cards, and 638 N4
+            vocabulary cards</strong
+          >. Vocabulary includes 15 supplementary cards, including useful words
+          already in this app and separate readings for 一日 and 私.
+        </p>
+        <p>
+          Kanji decks contain individual characters. Compounds such as 月曜日
+          belong to vocabulary. A word can have more than one reading, so cards
+          for 開く【あく】 and 開く【ひらく】 are kept separately. Bare reading
+          quizzes skip ambiguous homographs.
+        </p>
+      </section>
+      <section class="source-note">
+        <h2>Reading the readings.</h2>
+        <p>
+          On’yomi are written in katakana, and kun’yomi in hiragana. A dot marks
+          where okurigana begin: 食 is た.べる in 食べる. A leading or trailing
+          hyphen marks suffix or prefix use. A dash on its own means no reading
+          is listed in that category.
+        </p>
+        <p>
+          These are dictionary readings, including some uncommon ones. A kanji’s
+          reading in an actual word depends on that word; not every dictionary
+          reading is equally useful at N5 or N4.
+        </p>
+      </section>
+      <section class="source-note">
+        <h2>A word in context.</h2>
+        <p>
+          Each card has a Japanese example sentence and an English translation.
+          Sentences come from <a href="https://tatoeba.org">Tatoeba</a>, via
+          OpenJLPT, or were written for this app. Tatoeba examples link to their
+          original sentence and contributor attribution, and are used under
+          <a href="https://creativecommons.org/licenses/by/2.0/fr/"
+            >CC BY 2.0 FR</a
+          >. Original learner examples are shared under CC BY-SA 4.0.
+        </p>
+        <p>
+          Kanji examples show the character used in a sentence. Sentence grammar
+          can be more advanced than the word’s study level. Examples appear
+          after the answer is revealed, so they do not give away the question.
+        </p>
+      </section>
+      <section class="source-note">
+        <h2>Sources and corrections.</h2>
+        <p>
+          The baseline is
+          <a href="https://github.com/evanclan/OpenJLPT">OpenJLPT</a>, using
+          <a href="https://www.tanos.co.uk/jlpt/"
+            >Jonathan Waller’s community level lists</a
+          >, <a href="https://www.edrdg.org/jmdict/j_jmdict.html">JMdict</a> and
+          <a href="https://www.edrdg.org/wiki/KANJIDIC_Project.html"
+            >KANJIDIC2</a
+          >. Dictionary data are copyright the Electronic Dictionary Research
+          and Development Group (EDRDG), used under its
+          <a href="https://www.edrdg.org/edrdg/licence.html">licence</a>.
+        </p>
+        <p>
+          The app includes local corrections to the source, including せっけん
+          (soap), 半分 (half), the inclusive meanings of 以下 and 以上, and the
+          two readings of 一日. Questionable translations were checked against
+          dictionary references including
+          <a
+            href="https://dictionary.cambridge.org/dictionary/japanese-english/"
+            >Cambridge’s Japanese–English dictionary</a
+          >.
+        </p>
+        <p>
+          Data snapshot: OpenJLPT 0.3.0, retrieved 6 November 2026, using JMdict
+          and KANJIDIC2 data dated 29 September 2026. The deck data and
+          adaptations are distributed under
+          <a href="data/LICENSE-CC-BY-SA-4.0.txt">CC BY-SA 4.0</a>. See the
+          <a href="data/README.md">data notes</a> for the pinned version,
+          attribution, corrections, and verification limits.
+        </p>
+      </section>
+    </main>
+    <footer class="site-footer">
+      <span>A little practice goes a long way.</span>
+      <span class="footer-meta">
+        <span
+          >JLPT N5 &amp; N4 · <a href="sources.html">About the decks</a></span
+        >
+        <span class="footer-credit"
+          >Made by
+          <a
+            href="https://github.com/EmmaVellard"
+            target="_blank"
+            rel="noopener noreferrer"
+            >Emma Vellard</a
+          ></span
+        >
+      </span>
+    </footer>
+    <script src="select-controls.js?v=1"></script>
+  </body>
+</html>

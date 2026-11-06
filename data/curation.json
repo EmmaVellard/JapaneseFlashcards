@@ -1,0 +1,2044 @@
+{
+  "corrections": [
+    {
+      "word": "上げる",
+      "reading": "あげる",
+      "set": {
+        "meanings": [
+          "to raise, to lift",
+          "to give"
+        ]
+      },
+      "reason": "Include the core physical meaning as well as giving."
+    },
+    {
+      "word": "厚い",
+      "reading": "あつい",
+      "set": {
+        "meanings": [
+          "thick"
+        ]
+      },
+      "reason": "Use the core physical sense rather than broad dictionary adjectives."
+    },
+    {
+      "word": "暑い",
+      "reading": "あつい",
+      "set": {
+        "meanings": [
+          "hot (weather or air)"
+        ]
+      },
+      "reason": "Distinguish 暑い from 熱い."
+    },
+    {
+      "word": "忙しい",
+      "reading": "いそがしい",
+      "set": {
+        "meanings": [
+          "busy"
+        ]
+      },
+      "reason": "Use the common beginner sense."
+    },
+    {
+      "word": "一日",
+      "reading": "いちにち",
+      "set": {
+        "meanings": [
+          "one day",
+          "all day"
+        ]
+      },
+      "reason": "The first day of the month is read ついたち, not いちにち."
+    },
+    {
+      "word": "お祖父さん",
+      "reading": "おじいさん",
+      "set": {
+        "meanings": [
+          "grandfather"
+        ]
+      },
+      "reason": "The spelling 祖父 refers to a grandfather; the old-man spelling is お爺さん."
+    },
+    {
+      "word": "ごちそうさま",
+      "reading": "ごちそうさま",
+      "set": {
+        "meanings": [
+          "thank you for the meal (said after eating)"
+        ]
+      },
+      "reason": "A meal-ending expression, rather than a feast."
+    },
+    {
+      "word": "せっけん",
+      "reading": "せっけん",
+      "set": {
+        "meanings": [
+          "soap"
+        ],
+        "pos": [
+          "n"
+        ],
+        "jmdict_id": null,
+        "other_forms": [
+          "石鹸",
+          "石けん"
+        ]
+      },
+      "reason": "Correct a source mismatch with 節倹 (frugality)."
+    },
+    {
+      "word": "半分",
+      "reading": "はんぶん",
+      "set": {
+        "meanings": [
+          "half"
+        ]
+      },
+      "reason": "半分 means half. Half a minute is 三十秒; the source gloss confuses the word with a time quantity."
+    },
+    {
+      "word": "四日",
+      "reading": "よっか",
+      "set": {
+        "meanings": [
+          "four days",
+          "the fourth day of the month"
+        ]
+      },
+      "reason": "Correct the source typo fouth."
+    },
+    {
+      "word": "早い",
+      "reading": "はやい",
+      "set": {
+        "meanings": [
+          "early"
+        ]
+      },
+      "reason": "Distinguish temporal 早い from speed-related 速い."
+    },
+    {
+      "word": "速い",
+      "reading": "はやい",
+      "set": {
+        "meanings": [
+          "fast, quick"
+        ]
+      },
+      "reason": "Distinguish speed-related 速い from temporal 早い."
+    },
+    {
+      "word": "少ない",
+      "reading": "すくない",
+      "set": {
+        "meanings": [
+          "few, not many"
+        ]
+      },
+      "reason": "Avoid suggesting an affirmative quantity rather than scarcity."
+    },
+    {
+      "word": "少し",
+      "reading": "すこし",
+      "set": {
+        "meanings": [
+          "a little, a few"
+        ]
+      },
+      "reason": "Include the common small-quantity meaning."
+    },
+    {
+      "word": "涼しい",
+      "reading": "すずしい",
+      "set": {
+        "meanings": [
+          "cool (pleasantly, of air or weather)"
+        ]
+      },
+      "reason": "Include the core temperature sense."
+    },
+    {
+      "word": "大好き",
+      "reading": "だいすき",
+      "set": {
+        "meanings": [
+          "to like very much, to love"
+        ]
+      },
+      "reason": "Describe the speaker liking something rather than it being likeable."
+    },
+    {
+      "word": "好き",
+      "reading": "すき",
+      "set": {
+        "meanings": [
+          "to like, to be fond of"
+        ]
+      },
+      "reason": "Use the common beginner meaning; the grammatical category remains an adjective."
+    },
+    {
+      "word": "寒い",
+      "reading": "さむい",
+      "set": {
+        "meanings": [
+          "cold (weather or air)"
+        ]
+      },
+      "reason": "Distinguish from 冷たい, cold to the touch."
+    },
+    {
+      "word": "私",
+      "reading": "わたくし",
+      "set": {
+        "meanings": [
+          "I, me (formal or humble)"
+        ]
+      },
+      "reason": "Keep the formal reading separate from the common わたし reading."
+    },
+    {
+      "word": "以下",
+      "reading": "いか",
+      "set": {
+        "meanings": [
+          "or less, at most (including the stated number)",
+          "below, the following"
+        ]
+      },
+      "reason": "以下 includes the bound; less than is misleading."
+    },
+    {
+      "word": "以上",
+      "reading": "いじょう",
+      "set": {
+        "meanings": [
+          "or more, at least (including the stated number)",
+          "the above",
+          "that is all"
+        ]
+      },
+      "reason": "以上 includes the bound; more than is misleading."
+    },
+    {
+      "word": "受付",
+      "reading": "うけつけ",
+      "set": {
+        "meanings": [
+          "reception desk",
+          "registration, reception"
+        ]
+      },
+      "reason": "Receipt alone suggests a payment receipt, which is 領収書."
+    },
+    {
+      "word": "うかがう",
+      "reading": "うかがう",
+      "set": {
+        "meanings": [
+          "to visit (humble)",
+          "to ask, to inquire (humble)"
+        ]
+      },
+      "reason": "Include its common humble inquiry sense."
+    },
+    {
+      "word": "おいでになる",
+      "reading": "おいでになる",
+      "set": {
+        "meanings": [
+          "to be, to come, to go (honorific)"
+        ]
+      },
+      "reason": "Include all common honorific uses."
+    },
+    {
+      "word": "お金持ち",
+      "reading": "おかねもち",
+      "set": {
+        "meanings": [
+          "a wealthy person"
+        ]
+      },
+      "reason": "The word is not restricted to men."
+    },
+    {
+      "word": "ガス",
+      "reading": "ガス",
+      "set": {
+        "meanings": [
+          "gas"
+        ]
+      },
+      "reason": "Correct the source confusion with gasoline (ガソリン)."
+    },
+    {
+      "word": "家内",
+      "reading": "かない",
+      "set": {
+        "meanings": [
+          "one’s wife (humble)",
+          "household, inside the home"
+        ]
+      },
+      "reason": "Housewife is not the basic referent here."
+    },
+    {
+      "word": "君",
+      "reading": "きみ",
+      "set": {
+        "meanings": [
+          "you (informal; use depends on the relationship)"
+        ]
+      },
+      "reason": "The pronoun is not restricted to male-to-female address."
+    },
+    {
+      "word": "くれる",
+      "reading": "くれる",
+      "set": {
+        "meanings": [
+          "to give to me or someone in my group"
+        ]
+      },
+      "reason": "Distinguish the direction of giving from あげる."
+    },
+    {
+      "word": "けがする",
+      "reading": "けがする",
+      "set": {
+        "meanings": [
+          "to get injured"
+        ]
+      },
+      "reason": "Preserve the intransitive direction rather than to injure someone."
+    },
+    {
+      "word": "しかる",
+      "reading": "しかる",
+      "set": {
+        "meanings": [
+          "to scold, to reprimand"
+        ],
+        "pos": [
+          "v5r",
+          "vt"
+        ],
+        "jmdict_id": 1319580,
+        "other_forms": [
+          "叱る",
+          "𠮟る"
+        ]
+      },
+      "reason": "Correct a false match to 然る (a certain); the intended beginner verb is 叱る."
+    },
+    {
+      "word": "ぜんぜん",
+      "reading": "ぜんぜん",
+      "set": {
+        "meanings": [
+          "not at all (with a negative)",
+          "completely, entirely (context-dependent)"
+        ]
+      },
+      "reason": "Not entirely reverses the common negative sense."
+    },
+    {
+      "word": "倒れる",
+      "reading": "たおれる",
+      "set": {
+        "meanings": [
+          "to fall over, to collapse"
+        ]
+      },
+      "reason": "Use the falling/collapsing sense, rather than a machine breaking down."
+    },
+    {
+      "word": "ちゃん",
+      "reading": "ちゃん",
+      "set": {
+        "meanings": [
+          "affectionate suffix for children, friends, or someone close"
+        ]
+      },
+      "reason": "This suffix is not restricted to female people."
+    },
+    {
+      "word": "届ける",
+      "reading": "とどける",
+      "set": {
+        "meanings": [
+          "to deliver",
+          "to notify, to report"
+        ]
+      },
+      "reason": "The transitive verb means deliver; to reach is 届く."
+    },
+    {
+      "word": "入院",
+      "reading": "にゅういん",
+      "set": {
+        "meanings": [
+          "hospital admission, hospitalization"
+        ]
+      },
+      "reason": "The patient is admitted; the suru verb is intransitive."
+    },
+    {
+      "word": "開く",
+      "reading": "ひらく",
+      "set": {
+        "meanings": [
+          "to open, to unfold",
+          "to hold an event"
+        ]
+      },
+      "reason": "Include ordinary opening/unfolding, not only events."
+    },
+    {
+      "word": "もっとも",
+      "reading": "もっとも",
+      "set": {
+        "meanings": [
+          "most, the most",
+          "extremely"
+        ]
+      },
+      "reason": "Include the common superlative use."
+    },
+    {
+      "word": "忘れ物",
+      "reading": "わすれもの",
+      "set": {
+        "meanings": [
+          "something forgotten or left behind"
+        ]
+      },
+      "reason": "Differentiate forgotten belongings from a generally lost article."
+    },
+    {
+      "word": "看護婦",
+      "reading": "かんごふ",
+      "set": {
+        "meanings": [
+          "female nurse (older term; modern general term: 看護師)"
+        ]
+      },
+      "reason": "Retain the source entry while making its older usage clear."
+    },
+    {
+      "word": "朝ごはん",
+      "reading": "あさごはん",
+      "set": {
+        "word": "朝ご飯",
+        "reading": "あさごはん"
+      },
+      "reason": "Prefer the usual current spelling; keep the source ID and spelling aliases."
+    },
+    {
+      "word": "晩御飯",
+      "reading": "ばんごはん",
+      "set": {
+        "word": "晩ご飯",
+        "reading": "ばんごはん"
+      },
+      "reason": "Prefer the usual current spelling; keep the source ID and spelling aliases."
+    },
+    {
+      "word": "御飯",
+      "reading": "ごはん",
+      "set": {
+        "word": "ご飯",
+        "reading": "ごはん"
+      },
+      "reason": "Prefer the usual current spelling; keep the source ID and spelling aliases."
+    },
+    {
+      "word": "コンピュータ",
+      "reading": "コンピュータ",
+      "set": {
+        "word": "コンピューター",
+        "reading": "コンピューター"
+      },
+      "reason": "Prefer the usual current spelling; keep the source ID and spelling aliases."
+    },
+    {
+      "word": "起す",
+      "reading": "おこす",
+      "set": {
+        "word": "起こす",
+        "reading": "おこす"
+      },
+      "reason": "Prefer the usual current spelling; keep the source ID and spelling aliases."
+    },
+    {
+      "word": "落す",
+      "reading": "おとす",
+      "set": {
+        "word": "落とす",
+        "reading": "おとす"
+      },
+      "reason": "Prefer the usual current spelling; keep the source ID and spelling aliases."
+    },
+    {
+      "word": "終る",
+      "reading": "おわる",
+      "set": {
+        "word": "終わる",
+        "reading": "おわる"
+      },
+      "reason": "Prefer the usual current spelling; keep the source ID and spelling aliases."
+    },
+    {
+      "word": "曲る",
+      "reading": "まがる",
+      "set": {
+        "word": "曲がる",
+        "reading": "まがる"
+      },
+      "reason": "Prefer the usual current spelling; keep the source ID and spelling aliases."
+    }
+  ],
+  "supplementaryVocabulary": [
+    {
+      "level": "N5",
+      "word": "父",
+      "reading": "ちち",
+      "meaning": "my father",
+      "type": "noun",
+      "supplementary": true
+    },
+    {
+      "level": "N5",
+      "word": "母",
+      "reading": "はは",
+      "meaning": "my mother",
+      "type": "noun",
+      "supplementary": true
+    },
+    {
+      "level": "N5",
+      "word": "誰か",
+      "reading": "だれか",
+      "meaning": "someone",
+      "type": "pronoun",
+      "supplementary": true
+    },
+    {
+      "level": "N5",
+      "word": "本屋",
+      "reading": "ほんや",
+      "meaning": "bookstore",
+      "type": "noun",
+      "supplementary": true
+    },
+    {
+      "level": "N5",
+      "word": "コピー",
+      "reading": "コピー",
+      "meaning": "copy, photocopy",
+      "type": "noun, suru verb",
+      "supplementary": true
+    },
+    {
+      "level": "N4",
+      "word": "あいさつ",
+      "reading": "あいさつ",
+      "meaning": "greeting",
+      "type": "noun, suru verb",
+      "supplementary": true
+    },
+    {
+      "level": "N4",
+      "word": "お湯",
+      "reading": "おゆ",
+      "meaning": "hot water (polite)",
+      "type": "noun",
+      "supplementary": true
+    },
+    {
+      "level": "N4",
+      "word": "係",
+      "reading": "かかり",
+      "meaning": "person in charge",
+      "type": "noun",
+      "supplementary": true
+    },
+    {
+      "level": "N4",
+      "word": "固い",
+      "reading": "かたい",
+      "meaning": "hard, solid",
+      "type": "i-adjective",
+      "supplementary": true
+    },
+    {
+      "level": "N4",
+      "word": "看護師",
+      "reading": "かんごし",
+      "meaning": "nurse",
+      "type": "noun",
+      "supplementary": true
+    },
+    {
+      "level": "N4",
+      "word": "ゲーム",
+      "reading": "ゲーム",
+      "meaning": "game",
+      "type": "noun",
+      "supplementary": true
+    },
+    {
+      "level": "N4",
+      "word": "ずっと",
+      "reading": "ずっと",
+      "meaning": "continuously, all along; much more",
+      "type": "adverb",
+      "supplementary": true
+    },
+    {
+      "level": "N4",
+      "word": "びっくり",
+      "reading": "びっくり",
+      "meaning": "surprise; being startled",
+      "type": "adverb, suru verb",
+      "supplementary": true
+    },
+    {
+      "level": "N5",
+      "word": "一日",
+      "reading": "ついたち",
+      "meaning": "the first day of the month",
+      "type": "noun",
+      "supplementary": true
+    },
+    {
+      "level": "N5",
+      "word": "私",
+      "reading": "わたし",
+      "meaning": "I, me (neutral)",
+      "type": "pronoun",
+      "supplementary": true
+    }
+  ],
+  "legacyIds": {
+    "kanji-e4b880": [
+      "kanji-N5-e4b880"
+    ],
+    "kanji-e4ba8c": [
+      "kanji-N5-e4ba8c"
+    ],
+    "kanji-e4b889": [
+      "kanji-N5-e4b889"
+    ],
+    "kanji-e59b9b": [
+      "kanji-N5-e59b9b"
+    ],
+    "kanji-e4ba94": [
+      "kanji-N5-e4ba94"
+    ],
+    "kanji-e585ad": [
+      "kanji-N5-e585ad"
+    ],
+    "kanji-e4b883": [
+      "kanji-N5-e4b883"
+    ],
+    "kanji-e585ab": [
+      "kanji-N5-e585ab"
+    ],
+    "kanji-e4b99d": [
+      "kanji-N5-e4b99d"
+    ],
+    "kanji-e58d81": [
+      "kanji-N5-e58d81"
+    ],
+    "kanji-e799be": [
+      "kanji-N5-e799be"
+    ],
+    "kanji-e58d83": [
+      "kanji-N5-e58d83"
+    ],
+    "kanji-e58686": [
+      "kanji-N5-e58686"
+    ],
+    "kanji-e697a5": [
+      "kanji-N5-e697a5"
+    ],
+    "kanji-e69c88": [
+      "kanji-N5-e69c88"
+    ],
+    "kanji-e781ab": [
+      "kanji-N5-e781ab"
+    ],
+    "kanji-e6b0b4": [
+      "kanji-N5-e6b0b4"
+    ],
+    "kanji-e69ca8": [
+      "kanji-N5-e69ca8"
+    ],
+    "kanji-e98791": [
+      "kanji-N5-e98791"
+    ],
+    "kanji-e59c9f": [
+      "kanji-N5-e59c9f"
+    ],
+    "kanji-e69b9c": [
+      "kanji-N5-e69b9c",
+      "kanji-N4-e69b9c"
+    ],
+    "kanji-e4b88a": [
+      "kanji-N5-e4b88a"
+    ],
+    "kanji-e4b88b": [
+      "kanji-N5-e4b88b"
+    ],
+    "kanji-e4b8ad": [
+      "kanji-N5-e4b8ad"
+    ],
+    "kanji-e5b7a6": [
+      "kanji-N5-e5b7a6"
+    ],
+    "kanji-e58fb3": [
+      "kanji-N5-e58fb3"
+    ],
+    "kanji-e5b9b4": [
+      "kanji-N5-e5b9b4"
+    ],
+    "kanji-e58588": [
+      "kanji-N5-e58588"
+    ],
+    "kanji-e7949f": [
+      "kanji-N5-e7949f"
+    ],
+    "kanji-e7a781": [
+      "kanji-N5-e7a781",
+      "kanji-N4-e7a781"
+    ],
+    "kanji-e58f8b": [
+      "kanji-N5-e58f8b"
+    ],
+    "kanji-e5ada6": [
+      "kanji-N5-e5ada6"
+    ],
+    "kanji-e6a0a1": [
+      "kanji-N5-e6a0a1"
+    ],
+    "kanji-e8aa9e": [
+      "kanji-N5-e8aa9e"
+    ],
+    "kanji-e69687": [
+      "kanji-N5-e69687",
+      "kanji-N4-e69687"
+    ],
+    "kanji-e5ad97": [
+      "kanji-N5-e5ad97",
+      "kanji-N4-e5ad97"
+    ],
+    "kanji-e69cac": [
+      "kanji-N5-e69cac"
+    ],
+    "kanji-e4bb8a": [
+      "kanji-N5-e4bb8a"
+    ],
+    "kanji-e69982": [
+      "kanji-N5-e69982"
+    ],
+    "kanji-e58886": [
+      "kanji-N5-e58886"
+    ],
+    "kanji-e58d8a": [
+      "kanji-N5-e58d8a"
+    ],
+    "kanji-e58d88": [
+      "kanji-N5-e58d88"
+    ],
+    "kanji-e5898d": [
+      "kanji-N5-e5898d"
+    ],
+    "kanji-e5be8c": [
+      "kanji-N5-e5be8c"
+    ],
+    "kanji-e6af8e": [
+      "kanji-N5-e6af8e"
+    ],
+    "kanji-e980b1": [
+      "kanji-N5-e980b1",
+      "kanji-N4-e980b1"
+    ],
+    "kanji-e794b7": [
+      "kanji-N5-e794b7"
+    ],
+    "kanji-e5a5b3": [
+      "kanji-N5-e5a5b3"
+    ],
+    "kanji-e5ad90": [
+      "kanji-N5-e5ad90"
+    ],
+    "kanji-e78aac": [
+      "kanji-N5-e78aac",
+      "kanji-N4-e78aac"
+    ],
+    "kanji-e5a4a9": [
+      "kanji-N5-e5a4a9"
+    ],
+    "kanji-e6b097": [
+      "kanji-N5-e6b097"
+    ],
+    "kanji-e99ba8": [
+      "kanji-N5-e99ba8"
+    ],
+    "kanji-e99bbb": [
+      "kanji-N5-e99bbb"
+    ],
+    "kanji-e8bb8a": [
+      "kanji-N5-e8bb8a"
+    ],
+    "kanji-e9a785": [
+      "kanji-N5-e9a785",
+      "kanji-N4-e9a785"
+    ],
+    "kanji-e98193": [
+      "kanji-N5-e98193",
+      "kanji-N4-e98193"
+    ],
+    "kanji-e887aa": [
+      "kanji-N5-e887aa",
+      "kanji-N4-e887aa"
+    ],
+    "kanji-e4bd95": [
+      "kanji-N5-e4bd95"
+    ],
+    "kanji-e5a496": [
+      "kanji-N5-e5a496"
+    ],
+    "kanji-e5b08f": [
+      "kanji-N5-e5b08f"
+    ],
+    "kanji-e5a4a7": [
+      "kanji-N5-e5a4a7"
+    ],
+    "kanji-e5ae89": [
+      "kanji-N5-e5ae89",
+      "kanji-N4-e5ae89"
+    ],
+    "kanji-e696b0": [
+      "kanji-N5-e696b0",
+      "kanji-N4-e696b0"
+    ],
+    "kanji-e58fa4": [
+      "kanji-N5-e58fa4",
+      "kanji-N4-e58fa4"
+    ],
+    "kanji-e995b7": [
+      "kanji-N5-e995b7"
+    ],
+    "kanji-e5a49a": [
+      "kanji-N5-e5a49a",
+      "kanji-N4-e5a49a"
+    ],
+    "kanji-e5b091": [
+      "kanji-N5-e5b091",
+      "kanji-N4-e5b091"
+    ],
+    "kanji-e9a39f": [
+      "kanji-N5-e9a39f"
+    ],
+    "kanji-e9a3b2": [
+      "kanji-N5-e9a3b2",
+      "kanji-N4-e9a3b2"
+    ],
+    "kanji-e8a68b": [
+      "kanji-N5-e8a68b"
+    ],
+    "kanji-e8819e": [
+      "kanji-N5-e8819e"
+    ],
+    "kanji-e8a9b1": [
+      "kanji-N5-e8a9b1"
+    ],
+    "kanji-e8aaad": [
+      "kanji-N5-e8aaad"
+    ],
+    "kanji-e69bb8": [
+      "kanji-N5-e69bb8"
+    ],
+    "kanji-e7ab8b": [
+      "kanji-N5-e7ab8b",
+      "kanji-N4-e7ab8b"
+    ],
+    "kanji-e4bc91": [
+      "kanji-N5-e4bc91"
+    ],
+    "kanji-e8a18c": [
+      "kanji-N5-e8a18c"
+    ],
+    "kanji-e69da5": [
+      "kanji-N5-e69da5"
+    ],
+    "kanji-e5b8b0": [
+      "kanji-N5-e5b8b0",
+      "kanji-N4-e5b8b0"
+    ],
+    "kanji-e8b2b7": [
+      "kanji-N5-e8b2b7",
+      "kanji-N4-e8b2b7"
+    ],
+    "kanji-e5a3b2": [
+      "kanji-N5-e5a3b2",
+      "kanji-N4-e5a3b2"
+    ],
+    "kanji-e4bc9a": [
+      "kanji-N5-e4bc9a",
+      "kanji-N4-e4bc9a"
+    ],
+    "kanji-e7a4be": [
+      "kanji-N5-e7a4be",
+      "kanji-N4-e7a4be"
+    ],
+    "kanji-e5908c": [
+      "kanji-N4-e5908c"
+    ],
+    "kanji-e4ba8b": [
+      "kanji-N4-e4ba8b"
+    ],
+    "kanji-e799ba": [
+      "kanji-N4-e799ba"
+    ],
+    "kanji-e88085": [
+      "kanji-N4-e88085"
+    ],
+    "kanji-e59cb0": [
+      "kanji-N4-e59cb0"
+    ],
+    "kanji-e6a5ad": [
+      "kanji-N4-e6a5ad"
+    ],
+    "kanji-e696b9": [
+      "kanji-N4-e696b9"
+    ],
+    "kanji-e5a0b4": [
+      "kanji-N4-e5a0b4"
+    ],
+    "kanji-e593a1": [
+      "kanji-N4-e593a1"
+    ],
+    "kanji-e9968b": [
+      "kanji-N4-e9968b"
+    ],
+    "kanji-e6898b": [
+      "kanji-N4-e6898b"
+    ],
+    "kanji-e58a9b": [
+      "kanji-N4-e58a9b"
+    ],
+    "kanji-e5958f": [
+      "kanji-N4-e5958f"
+    ],
+    "kanji-e4bba3": [
+      "kanji-N4-e4bba3"
+    ],
+    "kanji-e6988e": [
+      "kanji-N4-e6988e"
+    ],
+    "kanji-e58b95": [
+      "kanji-N4-e58b95"
+    ],
+    "kanji-e4baac": [
+      "kanji-N4-e4baac"
+    ],
+    "kanji-e79bae": [
+      "kanji-N4-e79bae"
+    ],
+    "kanji-e9809a": [
+      "kanji-N4-e9809a"
+    ],
+    "kanji-e8a880": [
+      "kanji-N4-e8a880"
+    ],
+    "kanji-e79086": [
+      "kanji-N4-e79086"
+    ],
+    "kanji-e4bd93": [
+      "kanji-N4-e4bd93"
+    ],
+    "kanji-e794b0": [
+      "kanji-N4-e794b0"
+    ],
+    "kanji-e4b8bb": [
+      "kanji-N4-e4b8bb"
+    ],
+    "kanji-e9a18c": [
+      "kanji-N4-e9a18c"
+    ],
+    "kanji-e6848f": [
+      "kanji-N4-e6848f"
+    ],
+    "kanji-e4b88d": [
+      "kanji-N4-e4b88d"
+    ],
+    "kanji-e4bd9c": [
+      "kanji-N4-e4bd9c"
+    ],
+    "kanji-e794a8": [
+      "kanji-N4-e794a8"
+    ],
+    "kanji-e5baa6": [
+      "kanji-N4-e5baa6"
+    ],
+    "kanji-e5bcb7": [
+      "kanji-N4-e5bcb7"
+    ],
+    "kanji-e585ac": [
+      "kanji-N4-e585ac"
+    ],
+    "kanji-e68c81": [
+      "kanji-N4-e68c81"
+    ],
+    "kanji-e9878e": [
+      "kanji-N4-e9878e"
+    ],
+    "kanji-e4bba5": [
+      "kanji-N4-e4bba5"
+    ],
+    "kanji-e6809d": [
+      "kanji-N4-e6809d"
+    ],
+    "kanji-e5aeb6": [
+      "kanji-N4-e5aeb6"
+    ],
+    "kanji-e4b896": [
+      "kanji-N4-e4b896"
+    ],
+    "kanji-e6ada3": [
+      "kanji-N4-e6ada3"
+    ],
+    "kanji-e999a2": [
+      "kanji-N4-e999a2"
+    ],
+    "kanji-e5bf83": [
+      "kanji-N4-e5bf83"
+    ],
+    "kanji-e7958c": [
+      "kanji-N4-e7958c"
+    ],
+    "kanji-e69599": [
+      "kanji-N4-e69599"
+    ],
+    "kanji-e58583": [
+      "kanji-N4-e58583"
+    ],
+    "kanji-e9878d": [
+      "kanji-N4-e9878d"
+    ],
+    "kanji-e8bf91": [
+      "kanji-N4-e8bf91"
+    ],
+    "kanji-e88083": [
+      "kanji-N4-e88083"
+    ],
+    "kanji-e794bb": [
+      "kanji-N4-e794bb"
+    ],
+    "kanji-e6b5b7": [
+      "kanji-N4-e6b5b7"
+    ],
+    "kanji-e79fa5": [
+      "kanji-N4-e79fa5"
+    ],
+    "kanji-e99b86": [
+      "kanji-N4-e99b86"
+    ],
+    "kanji-e588a5": [
+      "kanji-N4-e588a5"
+    ],
+    "kanji-e789a9": [
+      "kanji-N4-e789a9"
+    ],
+    "kanji-e4bdbf": [
+      "kanji-N4-e4bdbf"
+    ],
+    "kanji-e59381": [
+      "kanji-N4-e59381"
+    ],
+    "kanji-e8a888": [
+      "kanji-N4-e8a888"
+    ],
+    "kanji-e6adbb": [
+      "kanji-N4-e6adbb"
+    ],
+    "kanji-e789b9": [
+      "kanji-N4-e789b9"
+    ],
+    "kanji-e5a78b": [
+      "kanji-N4-e5a78b"
+    ],
+    "kanji-e69c9d": [
+      "kanji-N4-e69c9d"
+    ],
+    "kanji-e9818b": [
+      "kanji-N4-e9818b"
+    ],
+    "kanji-e7b582": [
+      "kanji-N4-e7b582"
+    ],
+    "kanji-e58fb0": [
+      "kanji-N4-e58fb0"
+    ],
+    "kanji-e5ba83": [
+      "kanji-N4-e5ba83"
+    ],
+    "kanji-e4bd8f": [
+      "kanji-N4-e4bd8f"
+    ],
+    "kanji-e784a1": [
+      "kanji-N4-e784a1"
+    ],
+    "kanji-e79c9f": [
+      "kanji-N4-e79c9f"
+    ],
+    "kanji-e69c89": [
+      "kanji-N4-e69c89"
+    ],
+    "kanji-e58fa3": [
+      "kanji-N4-e58fa3"
+    ],
+    "kanji-e794ba": [
+      "kanji-N4-e794ba"
+    ],
+    "kanji-e69699": [
+      "kanji-N4-e69699"
+    ],
+    "kanji-e5b7a5": [
+      "kanji-N4-e5b7a5"
+    ],
+    "kanji-e5bbba": [
+      "kanji-N4-e5bbba"
+    ],
+    "kanji-e7a9ba": [
+      "kanji-N4-e7a9ba"
+    ],
+    "kanji-e680a5": [
+      "kanji-N4-e680a5"
+    ],
+    "kanji-e6ada2": [
+      "kanji-N4-e6ada2"
+    ],
+    "kanji-e98081": [
+      "kanji-N4-e98081"
+    ],
+    "kanji-e58887": [
+      "kanji-N4-e58887"
+    ],
+    "kanji-e8bba2": [
+      "kanji-N4-e8bba2"
+    ],
+    "kanji-e7a094": [
+      "kanji-N4-e7a094"
+    ],
+    "kanji-e8b6b3": [
+      "kanji-N4-e8b6b3"
+    ],
+    "kanji-e7a9b6": [
+      "kanji-N4-e7a9b6"
+    ],
+    "kanji-e6a5bd": [
+      "kanji-N4-e6a5bd"
+    ],
+    "kanji-e8b5b7": [
+      "kanji-N4-e8b5b7"
+    ],
+    "kanji-e79d80": [
+      "kanji-N4-e79d80"
+    ],
+    "kanji-e5ba97": [
+      "kanji-N4-e5ba97"
+    ],
+    "kanji-e79785": [
+      "kanji-N4-e79785"
+    ],
+    "kanji-e8b3aa": [
+      "kanji-N4-e8b3aa"
+    ],
+    "kanji-e5be85": [
+      "kanji-N4-e5be85"
+    ],
+    "kanji-e8a9a6": [
+      "kanji-N4-e8a9a6"
+    ],
+    "kanji-e6978f": [
+      "kanji-N4-e6978f"
+    ],
+    "kanji-e98a80": [
+      "kanji-N4-e98a80"
+    ],
+    "kanji-e697a9": [
+      "kanji-N4-e697a9"
+    ],
+    "kanji-e698a0": [
+      "kanji-N4-e698a0"
+    ],
+    "kanji-e8a6aa": [
+      "kanji-N4-e8a6aa"
+    ],
+    "kanji-e9a893": [
+      "kanji-N4-e9a893"
+    ],
+    "kanji-e88bb1": [
+      "kanji-N4-e88bb1"
+    ],
+    "kanji-e58cbb": [
+      "kanji-N4-e58cbb"
+    ],
+    "kanji-e4bb95": [
+      "kanji-N4-e4bb95"
+    ],
+    "kanji-e58ebb": [
+      "kanji-N4-e58ebb"
+    ],
+    "kanji-e591b3": [
+      "kanji-N4-e591b3"
+    ],
+    "kanji-e58699": [
+      "kanji-N4-e58699"
+    ],
+    "kanji-e7ad94": [
+      "kanji-N4-e7ad94"
+    ],
+    "kanji-e5a49c": [
+      "kanji-N4-e5a49c"
+    ],
+    "kanji-e99fb3": [
+      "kanji-N4-e99fb3"
+    ],
+    "kanji-e6b3a8": [
+      "kanji-N4-e6b3a8"
+    ],
+    "kanji-e6ad8c": [
+      "kanji-N4-e6ad8c"
+    ],
+    "kanji-e682aa": [
+      "kanji-N4-e682aa"
+    ],
+    "kanji-e59bb3": [
+      "kanji-N4-e59bb3"
+    ],
+    "kanji-e5aea4": [
+      "kanji-N4-e5aea4"
+    ],
+    "kanji-e6ada9": [
+      "kanji-N4-e6ada9"
+    ],
+    "kanji-e9a2a8": [
+      "kanji-N4-e9a2a8"
+    ],
+    "kanji-e7b499": [
+      "kanji-N4-e7b499"
+    ],
+    "kanji-e9bb92": [
+      "kanji-N4-e9bb92"
+    ],
+    "kanji-e88ab1": [
+      "kanji-N4-e88ab1"
+    ],
+    "kanji-e698a5": [
+      "kanji-N4-e698a5"
+    ],
+    "kanji-e8b5a4": [
+      "kanji-N4-e8b5a4"
+    ],
+    "kanji-e99d92": [
+      "kanji-N4-e99d92"
+    ],
+    "kanji-e9a4a8": [
+      "kanji-N4-e9a4a8"
+    ],
+    "kanji-e5b18b": [
+      "kanji-N4-e5b18b"
+    ],
+    "kanji-e889b2": [
+      "kanji-N4-e889b2"
+    ],
+    "kanji-e8b5b0": [
+      "kanji-N4-e8b5b0"
+    ],
+    "kanji-e7a78b": [
+      "kanji-N4-e7a78b"
+    ],
+    "kanji-e5a48f": [
+      "kanji-N4-e5a48f"
+    ],
+    "kanji-e7bf92": [
+      "kanji-N4-e7bf92"
+    ],
+    "kanji-e6b48b": [
+      "kanji-N4-e6b48b"
+    ],
+    "kanji-e69785": [
+      "kanji-N4-e69785"
+    ],
+    "kanji-e69c8d": [
+      "kanji-N4-e69c8d"
+    ],
+    "kanji-e5a495": [
+      "kanji-N4-e5a495"
+    ],
+    "kanji-e5809f": [
+      "kanji-N4-e5809f"
+    ],
+    "kanji-e88289": [
+      "kanji-N4-e88289"
+    ],
+    "kanji-e8b2b8": [
+      "kanji-N4-e8b2b8"
+    ],
+    "kanji-e5a082": [
+      "kanji-N4-e5a082"
+    ],
+    "kanji-e9b3a5": [
+      "kanji-N4-e9b3a5"
+    ],
+    "kanji-e9a3af": [
+      "kanji-N4-e9a3af"
+    ],
+    "kanji-e58b89": [
+      "kanji-N4-e58b89"
+    ],
+    "kanji-e586ac": [
+      "kanji-N4-e586ac"
+    ],
+    "kanji-e698bc": [
+      "kanji-N4-e698bc"
+    ],
+    "kanji-e88cb6": [
+      "kanji-N4-e88cb6"
+    ],
+    "kanji-e5bc9f": [
+      "kanji-N4-e5bc9f"
+    ],
+    "kanji-e7899b": [
+      "kanji-N4-e7899b"
+    ],
+    "kanji-e9ad9a": [
+      "kanji-N4-e9ad9a"
+    ],
+    "kanji-e58584": [
+      "kanji-N4-e58584"
+    ],
+    "kanji-e5a6b9": [
+      "kanji-N4-e5a6b9"
+    ],
+    "kanji-e5a789": [
+      "kanji-N4-e5a789"
+    ],
+    "kanji-e6bca2": [
+      "kanji-N4-e6bca2"
+    ],
+    "openjlpt-a5aceb6426": [
+      "vocabulary-N5-e6b5b4e381b3e3828b"
+    ],
+    "openjlpt-0509cb3b27": [
+      "vocabulary-N5-e58db1e381aae38184"
+    ],
+    "openjlpt-60dd63379e": [
+      "vocabulary-N5-e38182e381a3e381a1"
+    ],
+    "openjlpt-afdf384f68": [
+      "vocabulary-N5-e38182e381aae3819f"
+    ],
+    "openjlpt-ac4706068b": [
+      "vocabulary-N5-e38182e381ae"
+    ],
+    "openjlpt-0cf05b3a0d": [
+      "vocabulary-N5-e382a2e38391e383bce38388"
+    ],
+    "openjlpt-f8fa96946f": [
+      "vocabulary-N5-e6b497e38186"
+    ],
+    "openjlpt-d727a76b22": [
+      "vocabulary-N5-e38182e3828c"
+    ],
+    "openjlpt-ac08788418": [
+      "vocabulary-N5-e38182e3828b"
+    ],
+    "openjlpt-55f3080ce4": [
+      "vocabulary-N5-e6ada9e3818f"
+    ],
+    "openjlpt-d46ae79a26": [
+      "vocabulary-N5-e69c9d"
+    ],
+    "openjlpt-98bc6f72ae": [
+      "vocabulary-N5-e69c9de38194e9a3af"
+    ],
+    "openjlpt-b3b4041c52": [
+      "vocabulary-N5-e6988ee5be8ce697a5"
+    ],
+    "openjlpt-27df3d5802": [
+      "vocabulary-N5-e8b6b3"
+    ],
+    "openjlpt-115ec83476": [
+      "vocabulary-N5-e6988ee697a5"
+    ],
+    "openjlpt-2d55571300": [
+      "vocabulary-N5-e9818ae381b6"
+    ],
+    "openjlpt-bee501faf0": [
+      "vocabulary-N5-e38182e3819de38193"
+    ],
+    "openjlpt-b62cb9ce4c": [
+      "vocabulary-N5-e9a0ad"
+    ],
+    "openjlpt-8ae27e3b51": [
+      "vocabulary-N5-e696b0e38197e38184"
+    ],
+    "openjlpt-7b4aecdf7b": [
+      "vocabulary-N5-e69a91e38184"
+    ],
+    "openjlpt-ada066edfd": [
+      "vocabulary-N5-e4bc9ae38186"
+    ],
+    "openjlpt-246b5ae84d": [
+      "vocabulary-N5-e699a9e38194e9a3af"
+    ],
+    "openjlpt-67775e3b25": [
+      "vocabulary-N5-e795aae58fb7"
+    ],
+    "openjlpt-bd7df6c7a2": [
+      "vocabulary-N5-e38390e382b9"
+    ],
+    "openjlpt-91cf4ea2fd": [
+      "vocabulary-N5-e38399e38383e38389"
+    ],
+    "openjlpt-65783b95dd": [
+      "vocabulary-N5-e58b89e5bcb7"
+    ],
+    "openjlpt-84887dde48": [
+      "vocabulary-N5-e4bebfe588a9"
+    ],
+    "openjlpt-785a997045": [
+      "vocabulary-N5-e3839ce383bce383abe3839ae383b3"
+    ],
+    "openjlpt-04ab635f4b": [
+      "vocabulary-N5-e3839ce382bfe383b3"
+    ],
+    "openjlpt-cfc75623ae": [
+      "vocabulary-N5-e5b8bde5ad90"
+    ],
+    "openjlpt-734d275fd9": [
+      "vocabulary-N5-e79785e999a2"
+    ],
+    "openjlpt-c551bc3f7c": [
+      "vocabulary-N5-e79785e6b097"
+    ],
+    "openjlpt-f9b377e253": [
+      "vocabulary-N5-e88cb6e889b2"
+    ],
+    "supplement-e788b6-e381a1e381a1": [
+      "vocabulary-N5-e788b6"
+    ],
+    "openjlpt-35e9881c22": [
+      "vocabulary-N5-e98195e38186"
+    ],
+    "openjlpt-d4779ac36c": [
+      "vocabulary-N5-e5b08fe38195e38184"
+    ],
+    "openjlpt-a21ba677f2": [
+      "vocabulary-N5-e8bf91e38184"
+    ],
+    "openjlpt-3134199c25": [
+      "vocabulary-N5-e59cb0e4b88be98984"
+    ],
+    "openjlpt-ffa3dda331": [
+      "vocabulary-N5-e59cb0e59bb3"
+    ],
+    "openjlpt-602fdffbf2": [
+      "vocabulary-N5-e381a1e38287e381a3e381a8"
+    ],
+    "openjlpt-1c0b0f77b6": [
+      "vocabulary-N5-e58fb0e68980"
+    ],
+    "openjlpt-5b303264b9": [
+      "vocabulary-N5-e5a4a7e5ada6"
+    ],
+    "openjlpt-2f62b9db5e": [
+      "vocabulary-N5-e5a4a7e4b888e5a4ab"
+    ],
+    "openjlpt-3d2ca62c5f": [
+      "vocabulary-N5-e8aab0"
+    ],
+    "supplement-e8aab0e3818b-e381a0e3828ce3818b": [
+      "vocabulary-N5-e8aab0e3818b"
+    ],
+    "openjlpt-6298cfc5d6": [
+      "vocabulary-N5-e587bae38199"
+    ],
+    "openjlpt-151fd72164": [
+      "vocabulary-N5-e587bae58fa3"
+    ],
+    "openjlpt-375cfbefdd": [
+      "vocabulary-N5-e587bae3818be38191e3828b"
+    ],
+    "openjlpt-a7c36fdb70": [
+      "vocabulary-N5-e99bbbe6b097"
+    ],
+    "openjlpt-62b5c13164": [
+      "vocabulary-N5-e99bbbe8bb8a"
+    ],
+    "openjlpt-3c039918ba": [
+      "vocabulary-N5-e99bbbe8a9b1"
+    ],
+    "openjlpt-0144505953": [
+      "vocabulary-N5-e38387e38391e383bce38388"
+    ],
+    "openjlpt-5ef4f7dde9": [
+      "vocabulary-N5-e587bae3828b"
+    ],
+    "openjlpt-677d3c5fac": [
+      "vocabulary-N5-e38389e382a2"
+    ],
+    "openjlpt-ad884a3b70": [
+      "vocabulary-N5-e381a9e38193"
+    ],
+    "openjlpt-d0fb41651f": [
+      "vocabulary-N5-e381a9e38186"
+    ],
+    "openjlpt-03d03cf25d": [
+      "vocabulary-N5-e58b95e789a9"
+    ],
+    "openjlpt-a71cbc3ce4": [
+      "vocabulary-N5-e381a9e38186e3819e"
+    ],
+    "openjlpt-86e7fb81c6": [
+      "vocabulary-N5-e59c9fe69b9ce697a5",
+      "kanji-N5-e59c9fe69b9ce697a5"
+    ],
+    "openjlpt-5bb390da0b": [
+      "vocabulary-N5-e7b5b5"
+    ],
+    "openjlpt-8ac60a4060": [
+      "vocabulary-N5-e38188e38188"
+    ],
+    "openjlpt-92b1621231": [
+      "vocabulary-N5-e698a0e794bb"
+    ],
+    "openjlpt-8a88cfbcb8": [
+      "vocabulary-N5-e698a0e794bbe9a4a8"
+    ],
+    "openjlpt-16adc7bd03": [
+      "vocabulary-N5-e88bb1e8aa9e"
+    ],
+    "openjlpt-d5f359c20b": [
+      "vocabulary-N5-e9a785"
+    ],
+    "openjlpt-381da4d060": [
+      "vocabulary-N5-e9899be7ad86"
+    ],
+    "openjlpt-eb1695baf6": [
+      "vocabulary-N5-e382a8e383ace38399e383bce382bfe383bc"
+    ],
+    "openjlpt-dd8ac16bd2": [
+      "vocabulary-N5-e5ada6e6a0a1"
+    ],
+    "openjlpt-452102ad0a": [
+      "vocabulary-N5-e5ada6e7949f"
+    ],
+    "openjlpt-31a803c7f5": [
+      "vocabulary-N5-e5a496e59bbd"
+    ],
+    "openjlpt-442c4aa1ca": [
+      "vocabulary-N5-e58583e6b097"
+    ],
+    "openjlpt-a59efa3057": [
+      "vocabulary-N5-e98a80e8a18c"
+    ],
+    "openjlpt-a2694d259e": [
+      "vocabulary-N5-e38194e9a3af"
+    ],
+    "openjlpt-c428d02d43": [
+      "vocabulary-N5-e585a5e3828b"
+    ],
+    "openjlpt-9d5bde24ec": [
+      "vocabulary-N5-e8a9b1e38199"
+    ],
+    "supplement-e6af8d-e381afe381af": [
+      "vocabulary-N5-e6af8d"
+    ],
+    "openjlpt-4db42e0181": [
+      "vocabulary-N5-e697a9e38184"
+    ],
+    "openjlpt-0e8f798dbf": [
+      "vocabulary-N5-e69cac"
+    ],
+    "supplement-e69cace5b18b-e381bbe38293e38284": [
+      "vocabulary-N5-e69cace5b18b"
+    ],
+    "openjlpt-4fc98c6938": [
+      "vocabulary-N5-e38184e3818fe38289"
+    ],
+    "openjlpt-ce75c75644": [
+      "vocabulary-N5-e4bb8a"
+    ],
+    "openjlpt-0df89f5010": [
+      "vocabulary-N5-e78aac"
+    ],
+    "openjlpt-12047d019b": [
+      "vocabulary-N5-e5a6b9"
+    ],
+    "openjlpt-cd1bcc2b1b": [
+      "vocabulary-N5-e5bf99e38197e38184"
+    ],
+    "openjlpt-ca76162587": [
+      "vocabulary-N5-e58cbbe88085"
+    ],
+    "openjlpt-2dc7289c82": [
+      "vocabulary-N5-e4b880e7b792"
+    ],
+    "openjlpt-66e4692df7": [
+      "vocabulary-N5-e8a18ce3818f"
+    ],
+    "openjlpt-523266ea6f": [
+      "vocabulary-N5-e889b2"
+    ],
+    "openjlpt-f74dd1ee9a": [
+      "vocabulary-N5-e38184e3828de38184e3828d"
+    ],
+    "openjlpt-1ff0529d03": [
+      "vocabulary-N5-e585a5e58fa3"
+    ],
+    "openjlpt-9d648d38ad": [
+      "vocabulary-N5-e382abe383a1e383a9"
+    ],
+    "openjlpt-cd08f9cdc2": [
+      "vocabulary-N5-e7b499"
+    ],
+    "openjlpt-fdc787af58": [
+      "vocabulary-N5-e6bca2e5ad97"
+    ],
+    "openjlpt-67126059f1": [
+      "vocabulary-N5-e382b3e383bce38392e383bc"
+    ],
+    "supplement-e382b3e38394e383bc-e382b3e38394e383bc": [
+      "vocabulary-N5-e382b3e38394e383bc"
+    ],
+    "openjlpt-098e9e7e67": [
+      "vocabulary-N5-e38391e383b3"
+    ],
+    "openjlpt-dd1183b005": [
+      "vocabulary-N5-e3839ae383b3"
+    ],
+    "openjlpt-31893e4378": [
+      "vocabulary-N5-e383ace382b9e38388e383a9e383b3"
+    ],
+    "openjlpt-c7e14d8454": [
+      "vocabulary-N5-e38386e383ace38393"
+    ],
+    "supplement-e38182e38184e38195e381a4-e38182e38184e38195e381a4": [
+      "vocabulary-N4-e38182e38184e38195e381a4"
+    ],
+    "openjlpt-d1a343e501": [
+      "vocabulary-N4-e99693"
+    ],
+    "openjlpt-54e1f7a772": [
+      "vocabulary-N4-e59088e38186"
+    ],
+    "openjlpt-2a6a55be8d": [
+      "vocabulary-N4-e8b5a4e381a1e38283e38293"
+    ],
+    "openjlpt-628b6b8e9d": [
+      "vocabulary-N4-e382a2e382afe382bbe382b5e383aae383bc"
+    ],
+    "openjlpt-367da027cb": [
+      "vocabulary-N4-e38182e38293e381aa"
+    ],
+    "openjlpt-d06643e4e1": [
+      "vocabulary-N4-e5ae89e5bf83"
+    ],
+    "openjlpt-160a8399af": [
+      "vocabulary-N4-e5ae89e585a8"
+    ],
+    "openjlpt-629362dbfc": [
+      "vocabulary-N4-e4bba5e4b88b"
+    ],
+    "openjlpt-da4198f39c": [
+      "vocabulary-N4-e4bba5e5a496"
+    ],
+    "openjlpt-20044dd689": [
+      "vocabulary-N4-e58cbbe5ada6"
+    ],
+    "openjlpt-ba5a03baf1": [
+      "vocabulary-N4-e6848fe8a68b"
+    ],
+    "openjlpt-372ce69caf": [
+      "vocabulary-N4-e79fb3"
+    ],
+    "openjlpt-05b5de61ab": [
+      "vocabulary-N4-e680a5e38190"
+    ],
+    "openjlpt-bf82bb12d2": [
+      "vocabulary-N4-e4b880e5baa6"
+    ],
+    "openjlpt-cf69ef2274": [
+      "vocabulary-N4-e4b880e7949fe687b8e591bd"
+    ],
+    "openjlpt-95f7288e1b": [
+      "vocabulary-N4-e38184e381a3e381b1e38184"
+    ],
+    "openjlpt-556e3e0d99": [
+      "vocabulary-N4-e4bba5e58685"
+    ],
+    "openjlpt-11d4a3118b": [
+      "vocabulary-N4-e794b0e8888e"
+    ],
+    "openjlpt-877a39a99f": [
+      "vocabulary-N4-e7a588e3828b"
+    ],
+    "openjlpt-4bdd43130b": [
+      "vocabulary-N4-e58f97e4bb98"
+    ],
+    "openjlpt-e54d4fef93": [
+      "vocabulary-N4-e58b95e3818f"
+    ],
+    "openjlpt-da1a2f9721": [
+      "vocabulary-N4-e38186e3819d"
+    ],
+    "openjlpt-0dd54894db": [
+      "vocabulary-N4-e7be8ee38197e38184"
+    ],
+    "openjlpt-69589e0288": [
+      "vocabulary-N4-e58699e38199"
+    ],
+    "openjlpt-e6f3a7d91a": [
+      "vocabulary-N4-e68993e381a4"
+    ],
+    "openjlpt-78d94c404b": [
+      "vocabulary-N4-e88595"
+    ],
+    "openjlpt-44f33984fb": [
+      "vocabulary-N4-e9818be8bba2"
+    ],
+    "openjlpt-9f6e25d5e2": [
+      "vocabulary-N4-e9818be8bba2e6898b"
+    ],
+    "openjlpt-47487b1e85": [
+      "vocabulary-N4-e9818be58b95"
+    ],
+    "openjlpt-3139c14254": [
+      "vocabulary-N4-e382a8e382b9e382abe383ace383bce382bfe383bc"
+    ],
+    "openjlpt-60c9784974": [
+      "vocabulary-N4-e981b8e381b6"
+    ],
+    "openjlpt-5ceed9165d": [
+      "vocabulary-N4-e981a0e685ae"
+    ],
+    "openjlpt-12e7bd036b": [
+      "vocabulary-N4-e3818ae7a59de38184"
+    ],
+    "openjlpt-669019c625": [
+      "vocabulary-N4-e3818ae88f93e5ad90"
+    ],
+    "openjlpt-1065d7145c": [
+      "vocabulary-N4-e5b18be4b88a"
+    ],
+    "openjlpt-6c4661d672": [
+      "vocabulary-N4-e5a5a5e38195e38293"
+    ],
+    "openjlpt-af1dae5588": [
+      "vocabulary-N4-e98081e3828b"
+    ],
+    "openjlpt-6693b4e9f7": [
+      "vocabulary-N4-e3818ae5ae85"
+    ],
+    "openjlpt-981ee66f59": [
+      "vocabulary-N4-e890bde381a1e3828b"
+    ],
+    "openjlpt-050024e2d9": [
+      "vocabulary-N4-e3818ae381a3e38197e38283e3828b"
+    ],
+    "openjlpt-68ff489ea4": [
+      "vocabulary-N4-e3818ae7a5ade3828a"
+    ],
+    "openjlpt-eb615955c8": [
+      "vocabulary-N4-e3818ae8a68be8889ee38184"
+    ],
+    "openjlpt-f586632207": [
+      "vocabulary-N4-e3818ae59c9fe794a3"
+    ],
+    "supplement-e3818ae6b9af-e3818ae38286": [
+      "vocabulary-N4-e3818ae6b9af"
+    ],
+    "openjlpt-4806278f5b": [
+      "vocabulary-N4-e4b88be3828ae3828b"
+    ],
+    "openjlpt-ac3d1de39a": [
+      "vocabulary-N4-e68a98e3828b"
+    ],
+    "openjlpt-19cb869e4d": [
+      "vocabulary-N4-e7b582e3828fe3828a"
+    ],
+    "openjlpt-7508a7d366": [
+      "vocabulary-N4-e4bc9ae5a0b4"
+    ],
+    "openjlpt-81b9c23c14": [
+      "vocabulary-N4-e4bc9ae8a9b1"
+    ],
+    "openjlpt-6365c5ac47": [
+      "vocabulary-N4-e5b8b0e3828a"
+    ],
+    "openjlpt-ea150f3d48": [
+      "vocabulary-N4-e7a791e5ada6"
+    ],
+    "openjlpt-2c7db27d62": [
+      "vocabulary-N4-e98fa1"
+    ],
+    "supplement-e4bf82-e3818be3818be3828a": [
+      "vocabulary-N4-e4bf82"
+    ],
+    "openjlpt-0ce2b98d3b": [
+      "vocabulary-N4-e68e9be38191e3828b"
+    ],
+    "openjlpt-2d6f99582c": [
+      "vocabulary-N4-e9a3bee3828b"
+    ],
+    "openjlpt-b64af0c4f7": [
+      "vocabulary-N4-e781abe4ba8b"
+    ],
+    "openjlpt-376ccb94c4": [
+      "vocabulary-N4-e382ace382b9"
+    ],
+    "openjlpt-b3c360789e": [
+      "vocabulary-N4-e382ace382bde383aae383b3"
+    ],
+    "supplement-e59bbae38184-e3818be3819fe38184": [
+      "vocabulary-N4-e59bbae38184"
+    ],
+    "openjlpt-26f2ddd0a2": [
+      "vocabulary-N4-e5bda2"
+    ],
+    "openjlpt-119fdf575e": [
+      "vocabulary-N4-e78987e4bb98e38191e3828b"
+    ],
+    "openjlpt-26a19196b7": [
+      "vocabulary-N4-e8aab2e995b7"
+    ],
+    "openjlpt-021c00423f": [
+      "vocabulary-N4-e58b9de381a4"
+    ],
+    "openjlpt-4092bfd9bb": [
+      "vocabulary-N4-e8a792"
+    ],
+    "openjlpt-89927b8fa1": [
+      "vocabulary-N4-e5aeb6e58685"
+    ],
+    "openjlpt-3153705f1f": [
+      "vocabulary-N4-e682b2e38197e38184"
+    ],
+    "openjlpt-5a76ee84b9": [
+      "vocabulary-N4-e5bf85e3819a"
+    ],
+    "openjlpt-0752484ec5": [
+      "vocabulary-N4-e5a381"
+    ],
+    "openjlpt-e7dca3ae5a": [
+      "vocabulary-N4-e6a78be38186"
+    ],
+    "openjlpt-ec0fe6786a": [
+      "vocabulary-N4-e9abaa"
+    ],
+    "openjlpt-6b240c6105": [
+      "vocabulary-N4-e5999be38280"
+    ],
+    "openjlpt-d1cd028481": [
+      "vocabulary-N4-e9809ae38186"
+    ],
+    "openjlpt-4c9297421b": [
+      "vocabulary-N4-e382ace383a9e382b9"
+    ],
+    "openjlpt-0963c50b58": [
+      "vocabulary-N4-e5bdbc"
+    ],
+    "openjlpt-be3dacfc93": [
+      "vocabulary-N4-e5bdbce5a5b3"
+    ],
+    "openjlpt-84c24fbab6": [
+      "vocabulary-N4-e4b9bee3818f"
+    ],
+    "openjlpt-34071d7901": [
+      "vocabulary-N4-e4bba3e3828fe3828a"
+    ],
+    "openjlpt-cc34f28850": [
+      "vocabulary-N4-e88083e38188e3828b"
+    ],
+    "supplement-e79c8be8adb7e5b8ab-e3818be38293e38194e38197": [
+      "vocabulary-N4-e79c8be8adb7e5b8ab"
+    ],
+    "openjlpt-ac20bba998": [
+      "vocabulary-N4-e7b0a1e58d98"
+    ],
+    "openjlpt-3f4f3a3b9d": [
+      "vocabulary-N4-e6a99fe4bc9a"
+    ],
+    "openjlpt-8bbbe3a9e8": [
+      "vocabulary-N4-e58db1e999ba"
+    ],
+    "openjlpt-7225b79db5": [
+      "vocabulary-N4-e8819ee38193e38188e3828b"
+    ],
+    "openjlpt-e4e7e09df0": [
+      "vocabulary-N4-e6b1bae381bee3828b"
+    ],
+    "openjlpt-af80712b7b": [
+      "vocabulary-N4-e6b097e68c81e381a1"
+    ],
+    "openjlpt-ed36e1d3a7": [
+      "vocabulary-N4-e5909b"
+    ],
+    "openjlpt-6a98f898ab": [
+      "vocabulary-N4-e6b1bae38281e3828b"
+    ],
+    "openjlpt-42f05076b3": [
+      "vocabulary-N4-e6b097e58886"
+    ],
+    "openjlpt-a2a012c05f": [
+      "vocabulary-N4-e79d80e789a9"
+    ],
+    "openjlpt-cb029e617e": [
+      "vocabulary-N4-e5aea2"
+    ],
+    "openjlpt-b6027b4099": [
+      "vocabulary-N4-e680a5e8a18c"
+    ],
+    "openjlpt-319186af72": [
+      "vocabulary-N4-e69599e882b2"
+    ],
+    "openjlpt-7a7b79370f": [
+      "vocabulary-N4-e69599e4bc9a"
+    ],
+    "openjlpt-a9dcbea815": [
+      "vocabulary-N4-e7abb6e4ba89"
+    ],
+    "openjlpt-23ea485338": [
+      "vocabulary-N4-e88888e591b3"
+    ],
+    "openjlpt-a6d55823a0": [
+      "vocabulary-N4-e8bf91e68980"
+    ],
+    "openjlpt-a70d257a61": [
+      "vocabulary-N4-e7a9bae6b097"
+    ],
+    "openjlpt-0f74a8f3a4": [
+      "vocabulary-N4-e7a9bae6b8af"
+    ],
+    "openjlpt-b5b90cb965": [
+      "vocabulary-N4-e88d89"
+    ],
+    "openjlpt-78c6412e35": [
+      "vocabulary-N4-e9a696"
+    ],
+    "openjlpt-7db3da6e1b": [
+      "vocabulary-N4-e99bb2"
+    ],
+    "openjlpt-5bfe1d2c25": [
+      "vocabulary-N4-e6af94e381b9e3828b"
+    ],
+    "openjlpt-17279b1beb": [
+      "vocabulary-N4-e69aaee3828ce3828b"
+    ],
+    "openjlpt-7d2f81c2a3": [
+      "vocabulary-N4-e3818fe3828ce3828b"
+    ],
+    "openjlpt-836311c7d4": [
+      "vocabulary-N4-e8a888e794bb"
+    ],
+    "openjlpt-25550955b0": [
+      "vocabulary-N4-e8ada6e5af9f"
+    ],
+    "openjlpt-9746b57413": [
+      "vocabulary-N4-e7b58ce9a893"
+    ],
+    "openjlpt-8426193f36": [
+      "vocabulary-N4-e382b1e383bce382ad"
+    ],
+    "supplement-e382b2e383bce383a0-e382b2e383bce383a0": [
+      "vocabulary-N4-e382b2e383bce383a0"
+    ],
+    "openjlpt-918e096f88": [
+      "vocabulary-N4-e382b3e383b3e38394e383a5e383bce382bfe383bc"
+    ],
+    "openjlpt-43f6c947f9": [
+      "vocabulary-N4-e382b5e383a9e38380"
+    ],
+    "openjlpt-4b94df57e2": [
+      "vocabulary-N4-e382b5e383b3e38380e383ab"
+    ],
+    "openjlpt-eb0f717433": [
+      "vocabulary-N4-e382b9e383bce38384"
+    ],
+    "openjlpt-d2937b2999": [
+      "vocabulary-N4-e382b9e38386e383bce382ad"
+    ],
+    "openjlpt-ccdf4613d1": [
+      "vocabulary-N4-e38386e382ade382b9e38388"
+    ],
+    "openjlpt-54a6f375d8": [
+      "vocabulary-N4-e38391e382bde382b3e383b3"
+    ],
+    "openjlpt-cb716261e6": [
+      "vocabulary-N4-e38397e383ace382bce383b3e38388"
+    ],
+    "openjlpt-03712fac9d": [
+      "vocabulary-N4-e38197e381b0e38289e3818f"
+    ],
+    "supplement-e3819ae381a3e381a8-e3819ae381a3e381a8": [
+      "vocabulary-N4-e3819ae381a3e381a8"
+    ],
+    "openjlpt-4e5dab579c": [
+      "vocabulary-N4-e3819fe38184e381a6e38184"
+    ],
+    "openjlpt-6cf505ee55": [
+      "vocabulary-N4-e381a0e38281"
+    ],
+    "openjlpt-18035049f8": [
+      "vocabulary-N4-e381a1e38283e38293"
+    ],
+    "openjlpt-ccfefc657c": [
+      "vocabulary-N4-e381a9e38293e381a9e38293"
+    ],
+    "openjlpt-2078b08350": [
+      "vocabulary-N4-e381afe381a3e3818de3828a"
+    ],
+    "supplement-e381b3e381a3e3818fe3828a-e381b3e381a3e3818fe3828a": [
+      "vocabulary-N4-e381b3e381a3e3818fe3828a"
+    ],
+    "openjlpt-7e5b1397b9": [
+      "vocabulary-N4-e381bbe381a8e38293e381a9"
+    ],
+    "openjlpt-a8f5f4c59e": [
+      "vocabulary-N4-e38282e381a3e381a8"
+    ],
+    "openjlpt-b8c4cd80db": [
+      "kanji-N5-e58588e980b1"
+    ],
+    "openjlpt-04e80a2ba1": [
+      "kanji-N5-e69c88e69b9ce697a5"
+    ],
+    "openjlpt-0dbf9ef8ca": [
+      "kanji-N5-e781abe69b9ce697a5"
+    ],
+    "openjlpt-44d9d70862": [
+      "kanji-N5-e6b0b4e69b9ce697a5"
+    ],
+    "openjlpt-d10bb92f3e": [
+      "kanji-N5-e69ca8e69b9ce697a5"
+    ],
+    "openjlpt-b00c4af0a2": [
+      "kanji-N5-e98791e69b9ce697a5"
+    ],
+    "openjlpt-d8c3a3f0d0": [
+      "kanji-N5-e697a5e69b9ce697a5"
+    ]
+  }
+}

@@ -1,93 +1,282 @@
-<!DOCTYPE html>
+<!doctype html>
 <html lang="en">
-<head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>JLPT Flashcards</title>
-  <link rel="icon" href="data:image/svg+xml,<svg xmlns=%22http://www.w3.org/2000/svg%22 viewBox=%220 0 100 100%22><text y=%22.9em%22 font-size=%2290%22>🎴</text></svg>">
-  <link rel="stylesheet" href="style.css?v=13" />
-</head>
-<body>
-  <header>
-    <h1>JLPT Flashcards</h1>
-    <p class="tagline">Kanji and vocabulary practice for JLPT N5, N4, or both</p>
-    <nav class="site-nav" aria-label="Main navigation">
-      <a href="index.html" aria-current="page">Practice</a>
-      <a href="kanji.html">Kanji list</a>
-      <a href="vocabulary.html">Vocabulary list</a>
-    </nav>
-  </header>
-
-  <main class="practice-page">
-    <section class="study-panel" aria-label="Study controls">
-      <div class="top-controls">
-        <label class="study-picker" for="study-type-select">
-          Study
-          <select id="study-type-select">
-            <option value="kanji">Kanji</option>
-            <option value="vocabulary">Vocabulary</option>
-          </select>
-        </label>
-        <label class="level-picker" for="level-select">
-          Level
-          <select id="level-select">
-            <option value="N5">JLPT N5</option>
-            <option value="N4">JLPT N4</option>
-            <option value="ALL">JLPT N5 + N4</option>
-          </select>
-        </label>
-        <button id="toggle-mode" class="mode-toggle">Switch to Multiple Choice</button>
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta
+      name="description"
+      content="A quiet space to practice Japanese kanji and vocabulary for JLPT N5 and N4."
+    />
+    <title>Practice | Japanese Flashcards</title>
+    <link rel="icon" href="assets/favicon.svg" type="image/svg+xml" />
+    <link
+      rel="preload"
+      href="assets/fonts/fraunces-latin.woff2"
+      as="font"
+      type="font/woff2"
+      crossorigin
+    />
+    <link
+      rel="preload"
+      href="assets/fonts/nunito-latin.woff2"
+      as="font"
+      type="font/woff2"
+      crossorigin
+    />
+    <script src="theme.js?v=1"></script>
+    <link rel="stylesheet" href="style.css?v=20" />
+  </head>
+  <body>
+    <a class="skip-link" href="#main">Skip to content</a>
+    <header class="site-header">
+      <div class="header-inner">
+        <a
+          class="brand"
+          href="index.html"
+          aria-label="Japanese Flashcards home"
+        >
+          <span class="brand-mark" lang="ja" aria-hidden="true">日</span>
+          <span class="brand-name">Japanese Flashcards</span>
+        </a>
+        <nav class="site-nav" aria-label="Main navigation">
+          <a href="index.html" aria-current="page">Practice</a>
+          <a href="kanji.html">Kanji</a>
+          <a href="vocabulary.html">Vocabulary</a>
+        </nav>
+        <button
+          class="theme-toggle"
+          type="button"
+          aria-label="Switch to dark mode"
+        >
+          <svg class="moon-icon" viewBox="0 0 24 24" aria-hidden="true">
+            <path d="M20.9 13.1A9 9 0 0 1 10.9 3a9 9 0 1 0 10 10.1Z" />
+          </svg>
+          <svg class="sun-icon" viewBox="0 0 24 24" aria-hidden="true">
+            <circle cx="12" cy="12" r="4" />
+            <path
+              d="M12 2v2m0 16v2M2 12h2m16 0h2M5 5l1.5 1.5m11 11L19 19M5 19l1.5-1.5m11-11L19 5"
+            />
+          </svg>
+        </button>
       </div>
-      <div class="session-strip" aria-label="Session summary">
-        <span id="session-summary">0 cards • 0 studied • 0 remaining</span>
-        <span id="question-type-chip" class="question-chip">Flashcard</span>
-      </div>
-      <div class="progress-track" aria-hidden="true">
-        <span id="session-progress-bar"></span>
-      </div>
-      <details class="session-details">
-        <summary>Session details</summary>
-        <div class="session-metrics">
-          <div class="counters">
-            <span id="correct-count">Correct: 0</span>
-            <span id="wrong-count">Wrong: 0</span>
-            <span id="remaining-count">Remaining: 0</span>
-            <span id="success-rate" class="success">Success: 0%</span>
-          </div>
-          <div class="study-progress">
-            <span id="saved-progress">Saved: 0/0 seen</span>
-            <button id="reset-progress" type="button">Reset saved progress</button>
-          </div>
+    </header>
+    <main id="main" class="practice-page">
+      <div class="page-intro">
+        <div>
+          <p class="eyebrow">Your daily practice</p>
+          <h1>A little Japanese, every day.</h1>
+          <p class="intro-copy">
+            One card at a time. Build your confidence with kanji and vocabulary.
+          </p>
         </div>
-      </details>
-    </section>
+        <p class="intro-note">
+          <span class="status-dot" aria-hidden="true"></span> At your own pace
+        </p>
+      </div>
 
-    <div class="flashcard">
-      <div class="card-left" id="kanji-display"></div>
-      <div class="card-right" id="answer-display"></div>
-      <div class="overlay" id="overlay" data-label="?"></div>
-    </div>
+      <div class="practice-layout">
+        <details id="study-settings" class="study-panel" open>
+          <summary class="settings-summary">
+            <span class="section-label"><span>01</span> Study settings</span
+            ><span id="settings-preview" class="settings-preview"></span
+            ><span class="settings-chevron" aria-hidden="true"></span>
+          </summary>
+          <div class="top-controls">
+            <label class="study-picker" for="study-type-select"
+              >Study
+              <select id="study-type-select">
+                <option value="kanji">Kanji</option>
+                <option value="vocabulary">Vocabulary</option>
+              </select>
+            </label>
+            <label class="level-picker" for="level-select"
+              >Level
+              <select id="level-select">
+                <option value="N5">JLPT N5</option>
+                <option value="N4">JLPT N4</option>
+                <option value="ALL">JLPT N5 + N4</option>
+              </select>
+            </label>
+            <label class="study-picker" for="session-size-select"
+              >Session length
+              <select id="session-size-select">
+                <option value="10">10 cards</option>
+                <option value="20">20 cards</option>
+                <option value="all">All cards</option>
+              </select>
+            </label>
+            <label class="study-picker" for="study-focus-select"
+              >Focus
+              <select id="study-focus-select" aria-describedby="queue-summary">
+                <option value="daily">Daily practice</option>
+                <option value="review">Due reviews only</option>
+                <option value="new">New cards only</option>
+              </select>
+            </label>
+            <p id="queue-summary" class="queue-summary" aria-live="polite"></p>
+            <fieldset class="mode-field" aria-describedby="mode-description">
+              <legend>Practice mode</legend>
+              <div class="mode-options">
+                <button
+                  id="flashcard-mode"
+                  class="mode-option"
+                  type="button"
+                  aria-pressed="true"
+                >
+                  Flashcards
+                </button>
+                <button
+                  id="quiz-mode"
+                  class="mode-option"
+                  type="button"
+                  aria-pressed="false"
+                >
+                  Multiple choice
+                </button>
+              </div>
+            </fieldset>
+            <p id="mode-description" class="mode-description">
+              Recall the meaning and readings, then reveal the answer.
+            </p>
+          </div>
+          <details class="session-details">
+            <summary>Session details</summary>
+            <div class="session-metrics">
+              <div class="counters" aria-live="polite" aria-atomic="true">
+                <span id="correct-count">Correct: 0</span>
+                <span id="wrong-count">Wrong: 0</span>
+                <span id="remaining-count">Remaining: 0</span>
+                <span id="success-rate">Success: 0%</span>
+              </div>
+              <div class="study-progress">
+                <span id="saved-progress">Saved: 0/0 seen</span>
+              </div>
+            </div>
+          </details>
+        </details>
 
-    <div class="controls">
-      <button id="show-answer">Show Answer</button>
-      <button id="right" class="hidden">Correct</button>
-      <button id="wrong" class="hidden">Wrong</button>
-    </div>
-
-    <div id="choices" class="hidden"></div>
-
-    <details id="wrong-section">
-      <summary id="wrong-title">Review Wrong Cards</summary>
-      <div id="wrong-cards"></div>
-    </details>
-  </main>
-
-  <script src="Lists/kanjiN5.js?v=4"></script>
-  <script src="Lists/kanjiN4.js?v=4"></script>
-  <script src="Lists/vocabN5.js?v=4"></script>
-  <script src="Lists/vocabN4.js?v=4"></script>
-  <script src="study-utils.js?v=1"></script>
-  <script src="progress-store.js?v=2"></script>
-  <script src="script.js?v=13"></script>
-</body>
+        <section class="study-space" aria-label="Practice cards">
+          <div class="card-toolbar">
+            <span id="deck-label" class="deck-label">Kanji / JLPT N5</span>
+            <span id="question-type-chip" class="question-chip">Flashcard</span>
+          </div>
+          <div class="flashcard">
+            <div class="card-left" id="kanji-display" lang="ja"></div>
+            <div
+              class="card-right"
+              id="answer-display"
+              aria-live="polite"
+              aria-atomic="true"
+            ></div>
+            <div
+              class="overlay"
+              id="overlay"
+              aria-hidden="true"
+              data-label="Take a moment.&#10;What does this one mean?"
+            ></div>
+          </div>
+          <section
+            id="example-section"
+            class="example-section hidden"
+            aria-label="Example sentence"
+          ></section>
+          <div class="controls">
+            <button id="show-answer" type="button">
+              Reveal answer <kbd aria-hidden="true">S</kbd>
+            </button>
+            <button id="wrong" type="button" class="hidden">
+              Add to review <kbd aria-hidden="true">W</kbd>
+            </button>
+            <button id="right" type="button" class="hidden">
+              Got it <kbd aria-hidden="true">C</kbd>
+            </button>
+            <button id="restart-session" type="button" class="hidden">
+              Next session
+            </button>
+            <button id="change-focus" type="button" class="hidden">
+              Study new cards
+            </button>
+          </div>
+          <div
+            id="choices"
+            class="hidden"
+            role="group"
+            aria-label="Answer choices"
+          ></div>
+          <div class="session-progress">
+            <p id="session-composition" class="session-composition"></p>
+            <div class="session-strip">
+              <span id="session-summary" aria-live="polite" aria-atomic="true"
+                >0 cards · 0 studied · 0 remaining</span
+              >
+              <span id="session-percentage">0%</span>
+            </div>
+            <div
+              id="session-progress"
+              class="progress-track"
+              role="progressbar"
+              aria-label="Session progress"
+              aria-valuenow="0"
+              aria-valuemin="0"
+              aria-valuemax="100"
+            >
+              <span id="session-progress-bar"></span>
+            </div>
+            <div class="session-actions">
+              <button
+                id="reset-session"
+                class="text-button"
+                type="button"
+                title="Restart these cards. Saved progress is kept."
+              >
+                <span aria-hidden="true">↻</span> Reset session
+              </button>
+              <button id="reset-progress" class="text-button" type="button">
+                Reset saved progress
+              </button>
+            </div>
+          </div>
+          <div class="keyboard-note" aria-label="Keyboard shortcuts">
+            <span><kbd>T</kbd> Switch mode</span>
+            <span><kbd>R</kbd> Review mistakes</span>
+            <span id="mode-shortcuts"><kbd>S</kbd> Reveal answer</span>
+          </div>
+          <details id="wrong-section">
+            <summary id="wrong-title">Review this session (0)</summary>
+            <p class="review-help">
+              Reveal an answer and choose <strong>Add to review</strong>. Missed
+              quiz answers are added automatically. These cards become due again
+              in about 10 minutes.
+            </p>
+            <div id="wrong-cards"></div>
+          </details>
+        </section>
+      </div>
+    </main>
+    <footer class="site-footer">
+      <span>A little practice goes a long way.</span>
+      <span class="footer-meta">
+        <span
+          >JLPT N5 &amp; N4 · <a href="sources.html">About the decks</a></span
+        >
+        <span class="footer-credit"
+          >Made by
+          <a
+            href="https://github.com/EmmaVellard"
+            target="_blank"
+            rel="noopener noreferrer"
+            >Emma Vellard</a
+          ></span
+        >
+      </span>
+    </footer>
+    <script src="Lists/kanjiN5.js?v=7"></script>
+    <script src="Lists/kanjiN4.js?v=6"></script>
+    <script src="Lists/vocabN5.js?v=6"></script>
+    <script src="Lists/vocabN4.js?v=6"></script>
+    <script src="study-utils.js?v=2"></script>
+    <script src="progress-store.js?v=5"></script>
+    <script src="script.js?v=18"></script>
+    <script src="select-controls.js?v=1"></script>
+  </body>
 </html>

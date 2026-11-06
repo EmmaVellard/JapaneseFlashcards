@@ -3,7 +3,8 @@
   "version": "1.0.0",
   "private": true,
   "scripts": {
-    "check": "node --check study-utils.js && node --check progress-store.js && node --check script.js && node --check list-pages.js && node --check tests/logic.test.js",
-    "test": "node tests/logic.test.js"
+    "build:decks": "node scripts/build-decks.cjs",
+    "check": "node --check study-utils.js && node --check progress-store.js && node --check script.js && node --check list-pages.js && node --check theme.js && node --check select-controls.js && node --check tests/logic.test.js && node --check tests/practice.test.js",
+    "test": "node tests/logic.test.js && node tests/practice.test.js"
   }
 }
