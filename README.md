@@ -52,6 +52,8 @@ The site shares the editorial design language of [Movie Companion](https://emmav
 
 The light or dark theme follows the system until a preference is selected. Fonts are bundled locally, with their SIL Open Font License notices in `assets/fonts/`. There are no runtime dependencies or external font requests.
 
+Every page declares an opaque 180×180 PNG Apple touch icon and the Home Screen title **Japanese**, following [Apple's web app icon guidance](https://developer.apple.com/library/archive/documentation/AppleApplications/Reference/SafariWebContent/ConfiguringWebApplications/ConfiguringWebApplications.html). On iPhone, use Safari's **Share → Add to Home Screen**. The icon artwork is saved in `assets/app-icon.png`; the iOS asset is `assets/apple-touch-icon.png`.
+
 ## Development
 
 Open `index.html` directly in a browser, or serve the directory with any static server, for example:
